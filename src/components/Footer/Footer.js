@@ -4,13 +4,14 @@ import { Container } from "react-bootstrap";
 
 function Footer() {
   return (
-    <footer style={{ marginTop: "10rem" }} className="text-center">
+    // style={{ marginTop: "10rem" }}
+    <footer className="mt-5 footer text-center">
       <div className="">
         <Container className="">
-          <div className="text-center text-uppercase font-weight-bold showcase-title">
+          <div className="pt-4 text-center text-uppercase font-weight-bold ct">
             Follow meta monopoly
           </div>
-          <div className="mt-5 d-flex justify-content-center">
+          <div className="mt-3 d-flex justify-content-center">
             <div className="text-center">
               <div className="">
                 <a
@@ -19,7 +20,7 @@ function Footer() {
                   rel="noopener noreferrer"
                 >
                   <img
-                    className="img-fluid"
+                    className="img-fluid fsm"
                     src={require("../../assets/img/os1.png").default}
                     alt=""
                   />
@@ -34,7 +35,7 @@ function Footer() {
                   rel="noopener noreferrer"
                 >
                   <img
-                    className="img-fluid"
+                    className="img-fluid fsm"
                     src={require("../../assets/img/tw.png").default}
                     alt=""
                   />
@@ -49,7 +50,7 @@ function Footer() {
                   rel="noopener noreferrer"
                 >
                   <img
-                    className="img-fluid"
+                    className="img-fluid fsm"
                     src={require("../../assets/img/ins.png").default}
                     alt=""
                   />
@@ -64,7 +65,7 @@ function Footer() {
                   rel="noopener noreferrer"
                 >
                   <img
-                    className="img-fluid"
+                    className="img-fluid fsm"
                     src={require("../../assets/img/tg.png").default}
                     alt=""
                   />
@@ -79,7 +80,7 @@ function Footer() {
                   rel="noopener noreferrer"
                 >
                   <img
-                    className="img-fluid"
+                    className="img-fluid fsm"
                     src={require("../../assets/img/tik.png").default}
                     alt=""
                   />

@@ -88,9 +88,30 @@
   color: #000;
 }
 
+.ct {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.hashimg {
+  height: 221px;
+}
+
 @media only screen and (max-width: 600px) {
   .logo-text {
-    font-size: 2rem !important;
+    font-size: 1.7rem !important;
+  }
+
+  .smm {
+    height: 150px;
+  }
+
+  .hashimg {
+    height: 100px;
+  }
+
+  .ct {
+    font-size: 1rem;
   }
   // .showcase-title {
   //   font-size: 1rem !important;

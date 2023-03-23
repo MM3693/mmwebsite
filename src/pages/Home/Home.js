@@ -39,7 +39,7 @@ function Home() {
                         <div className="text-uppercase font-weight-bold logo-text">
                           Metamonopoly
                         </div>
-                        <div className="text-center">
+                        <div className="text-center hideinmob">
                           <img
                             className="img-fluid"
                             style={{ height: "40px" }}
@@ -189,7 +189,7 @@ function Home() {
       </div>
       <div className="">
         <div className="user">
-          <div className=" d-flex justify-content-center">
+          <div className="mt-5 d-flex justify-content-center">
             <div style={{ border: "5px solid #1DFF27" }} className="">
               <h1 className="user-number">12,345</h1>
             </div>
@@ -287,7 +287,8 @@ function Home() {
         />
       </div>
       <Container>
-        <div className="text-center py-5">
+        <div className="text-center">
+          {/* // py-5 */}
           <img
             className="img-fluid"
             src={require("../../assets/img/m3.png").default}
@@ -295,14 +296,14 @@ function Home() {
           />
         </div>
       </Container>
-      <div className="text-center py-5">
+      <div className="text-center pt-5">
         <img
           className="img-fluid"
           src={require("../../assets/img/m4.png").default}
           alt=""
         />
       </div>
-      <div className="text-center py-5">
+      <div className="text-center py-2">
         <img
           className="img-fluid"
           src={require("../../assets/img/m5.png").default}
@@ -354,13 +355,13 @@ function Home() {
       </Container>
       <Container className="mt-5" fluid>
         <div className="text-center">
-          <div className="text-uppercase font-weight-bold showcase-title">
+          <div className="text-uppercase font-weight-bold ct">
             Check the popularity of every MMNFT by typing the code number:
           </div>
           <div className="mt-5 d-flex justify-content-center align-items-center">
             <img
-              style={{ height: "221px" }}
-              className="img-fluid"
+              // style={{ height: "221px" }}
+              className="img-fluid hashimg"
               src={require("../../assets/img/hash.png").default}
               alt=""
             />
@@ -381,14 +382,12 @@ function Home() {
             alt=""
           />
         </div>
-        <div className="mt-5 text-center">
-          <div className="showcase-title">
+        <div className=" text-center">
+          <div className="ct">
             Zero royalties or fees collected <br />
             on any of the games or the NFTs
           </div>
-          <div className="showcase-title textblue">
-            Giving more power to the community
-          </div>
+          <div className="ct textblue">Giving more power to the community</div>
         </div>
       </div>
 
@@ -401,7 +400,7 @@ function Home() {
             <div className="text-center">
               <div className="">
                 <img
-                  className="img-fluid"
+                  className="img-fluid smm"
                   src={require("../../assets/img/sm.png").default}
                   alt=""
                 />
@@ -423,7 +422,7 @@ function Home() {
               >
                 <div className="">
                   <img
-                    className="img-fluid"
+                    className="img-fluid smm"
                     src={require("../../assets/img/pn.png").default}
                     alt=""
                   />
@@ -446,7 +445,7 @@ function Home() {
               >
                 <div className="">
                   <img
-                    className="img-fluid"
+                    className="img-fluid smm"
                     src={require("../../assets/img/os.png").default}
                     alt=""
                   />
