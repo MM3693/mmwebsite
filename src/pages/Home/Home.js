@@ -4,6 +4,7 @@ import Web3 from "web3";
 import { Container, Row, Col } from "react-bootstrap";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Footer from "../../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 function Home() {
   const [web3, setWeb3] = useState("");
@@ -229,12 +230,14 @@ function Home() {
         />
       </div>
       <div className="text-center">
-        <img
-          className="img-fluid"
-          style={{ height: "130px" }}
-          src={require("../../assets/img/PLAYNOW-Normal.png").default}
-          alt=""
-        />
+        <a href="https://galaxy.metamonopoly.org/" target="_blank">
+          <img
+            className="img-fluid"
+            style={{ height: "130px" }}
+            src={require("../../assets/img/PLAYNOW-Normal.png").default}
+            alt=""
+          />
+        </a>
       </div>
 
       {/* <div className="">
@@ -412,40 +415,48 @@ function Home() {
           </Col>
           <Col lg="4" className="rmt">
             <div className="text-center">
-              <div className="">
-                <img
-                  className="img-fluid"
-                  src={require("../../assets/img/pn.png").default}
-                  alt=""
-                />
-              </div>
-              <div className="mt-4">
-                <div className="text-uppercase font-weight-bold text3">
-                  Play now
+              <a
+                className="text-white"
+                style={{ textDecoration: "none" }}
+                href="https://galaxy.metamonopoly.org/"
+                target="_blank"
+              >
+                <div className="">
+                  <img
+                    className="img-fluid"
+                    src={require("../../assets/img/pn.png").default}
+                    alt=""
+                  />
                 </div>
-              </div>
+                <div className="mt-4">
+                  <div className="text-uppercase font-weight-bold text3">
+                    Play now
+                  </div>
+                </div>
+              </a>
             </div>
           </Col>
           <Col lg="4" className="rmt">
             <div className="text-center">
-              <div className="">
-                <a
-                  href="https://opensea.io/collection/meta-monopoly"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+              <a
+                className="text-white"
+                style={{ textDecoration: "none" }}
+                href="https://opensea.io/collection/meta-monopoly"
+                target="_blank"
+              >
+                <div className="">
                   <img
                     className="img-fluid"
                     src={require("../../assets/img/os.png").default}
                     alt=""
                   />
-                </a>
-              </div>
-              <div className="mt-4">
-                <div className="text-uppercase font-weight-bold text3">
-                  Get MMnft
                 </div>
-              </div>
+                <div className="mt-4">
+                  <div className="text-uppercase font-weight-bold text3">
+                    Get MMnft
+                  </div>
+                </div>
+              </a>
             </div>
           </Col>
         </Row>
