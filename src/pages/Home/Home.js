@@ -36,7 +36,7 @@ function Home() {
                         <div className="text-uppercase font-weight-bold showcase-title">
                           Monetize the galaxy with
                         </div>
-                        <div className="text-uppercase font-weight-bold logo-text">
+                        <div className="text-uppercase font-weight-bold showcase-logo logo-text">
                           Metamonopoly
                         </div>
                         <div className="text-center hideinmob">
@@ -62,24 +62,32 @@ function Home() {
         </div>
       </div>
 
-      <div style={{ marginTop: "5rem" }}>
+      <div className="p2esec bigcon">
         <Container className="d-flex justify-content-center" fluid>
           <Row>
             <Col lg="12">
-              <div className="bigcon text-white">
+              <div className="text-white">
                 <Row className="">
                   <Col>
                     <div className="text-center">
-                      <div className="text-uppercase font-weight-bold title">
+                      <div className="formobile mt-2 text-center">
+                        <img
+                          className="img-fluid"
+                          style={{ height: "81px" }}
+                          src={require("../../assets/img/ETH.png").default}
+                          alt=""
+                        />
+                      </div>
+                      <div className="text-uppercase font-weight-bold  p2esec-title title">
                         Play-to-earn
                       </div>
                       <div
                         style={{ color: "#000" }}
-                        className="bg-white text-uppercase font-weight-bold subtitle"
+                        className="bg-white text-uppercase font-weight-bold p2esec-subtitle subtitle"
                       >
                         On ethereum
                       </div>
-                      <div className="text-center py-5">
+                      <div className="fordesk text-center py-5">
                         <img
                           className="img-fluid"
                           style={{ height: "121px" }}
@@ -94,7 +102,7 @@ function Home() {
             </Col>
           </Row>
         </Container>
-
+        {/* 
         <Container className="" fluid>
           <Row>
             <Col lg="4">
@@ -186,12 +194,106 @@ function Home() {
             </Col>
           </Row>
         </Container>
+       */}
+
+        <Container className="rmt" fluid>
+          <Row>
+            <Col>
+              <div className="text-center">
+                <div className="">
+                  <img
+                    className="img-fluid p2esec-img-text"
+                    // style={{ height: "80px" }}
+                    src={require("../../assets/img/Multiplayer-.png").default}
+                    alt=""
+                  />
+                </div>
+                <div className="">
+                  <img
+                    className="img-fluid"
+                    src={
+                      require("../../assets/img/Multiplayer-Graph.png").default
+                    }
+                    alt=""
+                  />
+                </div>
+                <div className="">
+                  <div className="text-uppercase font-weight-bold p2esec-text3 text3">
+                    Play online or
+                  </div>
+                  <div className="text-uppercase font-weight-bold p2esec-text3 text3">
+                    with friends
+                  </div>
+                </div>
+              </div>
+            </Col>
+            <Col>
+              <div className="text-center">
+                <div className="">
+                  <img
+                    className="img-fluid p2esec-img-text"
+                    // style={{ height: "80px" }}
+                    src={require("../../assets/img/FastGames.png").default}
+                    alt=""
+                  />
+                </div>
+                <div className="">
+                  <img
+                    className="img-fluid"
+                    src={
+                      require("../../assets/img/FastGames-Graph.png").default
+                    }
+                    alt=""
+                  />
+                </div>
+                <div className="">
+                  <div className="text-uppercase font-weight-bold p2esec-text3 text3">
+                    Fast-paced
+                  </div>
+                  <div className="text-uppercase font-weight-bold p2esec-text3 text3">
+                    friendly games
+                  </div>
+                </div>
+              </div>
+            </Col>
+            <Col>
+              <div className="text-center">
+                <div className="">
+                  <img
+                    className="img-fluid p2esec-img-text"
+                    // style={{ height: "80px" }}
+                    src={require("../../assets/img/RealMoney-.png").default}
+                    alt=""
+                  />
+                </div>
+                <div className="">
+                  <img
+                    className="img-fluid"
+                    src={
+                      require("../../assets/img/RealMoney-Graph.png").default
+                    }
+                    alt=""
+                  />
+                </div>
+                <div className="">
+                  <div className="text-uppercase font-weight-bold p2esec-text3 text3">
+                    Play with $MM
+                  </div>
+                  <div className="text-uppercase font-weight-bold p2esec-text3 text3">
+                    win real crypto
+                  </div>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
-      <div className="">
-        <div className="user">
+
+      <div className="useronline">
+        <div className="">
           <div className="mt-5 d-flex justify-content-center">
-            <div style={{ border: "5px solid #1DFF27" }} className="">
-              <h1 className="user-number">12,345</h1>
+            <div className="userborder">
+              <div className="usernumber">12,345</div>
             </div>
           </div>
         </div>
@@ -208,10 +310,7 @@ function Home() {
         </div>
       </div>
 
-      <div
-        style={{ marginTop: "5rem" }}
-        className="d-flex justify-content-center"
-      >
+      <div className="d-flex justify-content-center sec">
         <div>
           <img
             className="img-fluid rimg"
@@ -232,8 +331,7 @@ function Home() {
       <div className="text-center">
         <a href="https://galaxy.metamonopoly.org/" target="_blank">
           <img
-            className="img-fluid"
-            style={{ height: "130px" }}
+            className="img-fluid playnowimg"
             src={require("../../assets/img/PLAYNOW-Normal.png").default}
             alt=""
           />
@@ -271,7 +369,7 @@ function Home() {
         </Container>
       </div> */}
       <Container>
-        <div className="text-center py-5">
+        <div className="text-center mt-3">
           <img
             className="img-fluid"
             src={require("../../assets/img/m1.png").default}
@@ -279,7 +377,7 @@ function Home() {
           />
         </div>
       </Container>
-      <div className="text-center py-5">
+      <div className="text-center mt-4">
         <img
           className="img-fluid"
           src={require("../../assets/img/m2.png").default}
@@ -287,7 +385,7 @@ function Home() {
         />
       </div>
       <Container>
-        <div className="text-center">
+        <div className="text-center my-4">
           {/* // py-5 */}
           <img
             className="img-fluid"
@@ -296,7 +394,7 @@ function Home() {
           />
         </div>
       </Container>
-      <div className="text-center pt-5">
+      <div className="text-center">
         <img
           className="img-fluid"
           src={require("../../assets/img/m4.png").default}
@@ -315,7 +413,7 @@ function Home() {
           <Col>
             <div className="">
               <div className="text-center">
-                <div className="text-uppercase font-weight-bold logo-text">
+                <div className="font-weight-bold logo-text">
                   Browse our videos
                 </div>
                 <div className="mt-4 d-flex justify-content-center">
@@ -327,7 +425,7 @@ function Home() {
                     >
                       <img
                         style={{ height: "221px" }}
-                        className="img-fluid rimg"
+                        className="img-fluid bovsmimg"
                         src={require("../../assets/img/ig.png").default}
                         alt=""
                       />
@@ -341,7 +439,7 @@ function Home() {
                     >
                       <img
                         style={{ height: "221px" }}
-                        className="img-fluid rimg"
+                        className="img-fluid bovsmimg"
                         src={require("../../assets/img/tt.png").default}
                         alt=""
                       />
@@ -353,12 +451,12 @@ function Home() {
           </Col>
         </Row>
       </Container>
-      <Container className="mt-5" fluid>
+      <Container className="mt-3" fluid>
         <div className="text-center">
           <div className="text-uppercase font-weight-bold ct">
             Check the popularity of every MMNFT by typing the code number:
           </div>
-          <div className="mt-5 d-flex justify-content-center align-items-center">
+          <div className="mt-3 d-flex justify-content-center align-items-center">
             <img
               // style={{ height: "221px" }}
               className="img-fluid hashimg"
@@ -374,7 +472,7 @@ function Home() {
           </div>
         </div>
       </Container>
-      <div className="mt-5">
+      <div className="mt-3">
         <div className="">
           <img
             className="img-fluid"
@@ -391,7 +489,7 @@ function Home() {
         </div>
       </div>
 
-      <Container style={{ marginTop: "3rem" }} className="">
+      <Container style={{ marginTop: "2rem" }} className="">
         <div className="text-center text-uppercase font-weight-bold logo-text">
           Joun our community
         </div>

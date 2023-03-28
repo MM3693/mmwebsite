@@ -54,21 +54,17 @@
   }
 }
 
-.bigcon {
-  .title {
-    font-size: 6.5rem;
-  }
-  .subtitle {
-    font-size: 2.5rem;
-  }
-}
+// .bigcon {
+//   .title {
+//     font-size: 6.5rem;
+//   }
+//   .subtitle {
+//     font-size: 2.5rem;
+//   }
+// }
 
 .text3 {
   font-size: 1.5rem;
-}
-
-.user-subtile {
-  font-size: 2rem;
 }
 
 .cusbtn {
@@ -97,6 +93,42 @@
   height: 221px;
 }
 
+.p2esec {
+  margin-top: 5rem;
+  .formobile {
+    display: none;
+  }
+  .p2esec-title {
+    font-size: 6.5rem;
+  }
+  .p2esec-subtitle {
+    font-size: 2.5rem;
+  }
+}
+
+.useronline {
+  margin-top: 7rem;
+  .userborder {
+    border: 5px solid #1dff27;
+    padding: 0.5rem 3.5rem;
+  }
+  .usernumber {
+    color: #1dff27;
+    font-weight: bold;
+    font-size: 2.8rem;
+  }
+  .user-subtile {
+    font-size: 2rem;
+  }
+}
+
+.sec {
+  margin-top: 5rem;
+}
+.playnowimg {
+  height: 120px;
+}
+
 @media only screen and (max-width: 600px) {
   .logo-text {
     font-size: 1.7rem !important;
@@ -113,9 +145,6 @@
   .ct {
     font-size: 1rem;
   }
-  // .showcase-title {
-  //   font-size: 1rem !important;
-  // }
 
   .sidiv {
     display: none;
@@ -125,30 +154,94 @@
     margin-top: 3rem;
   }
 
-  .showcase {
-    // height: auto !important;
-    .showcase-content {
-      // height: auto !important;
-      margin-top: 2rem !important;
+  // .showcase {
+  //   // height: auto !important;
+  //   .showcase-content {
+  //     margin-top: 2rem !important;
+  //     .mbcon {
+  //       margin-top: 2rem !important;
+  //     }
+  //   }
+  // }
 
-      .mbcon {
+  .showcase {
+    height: 40vh;
+    .showcase-content {
+      height: 70%;
+      display: flex;
+      align-items: flex-end;
+      // margin-top: 14rem;
+      .countd {
+        .showcase-title {
+          font-size: 1.4rem;
+        }
+        .showcase-logo {
+          font-size: 2rem !important;
+        }
         margin-top: 2rem !important;
+        .mbcon {
+          margin-top: 2rem !important;
+        }
       }
     }
   }
 
-  .bigcon {
-    .title {
-      font-size: 2rem;
+  .p2esec {
+    margin-top: 0;
+    .fordesk {
+      display: none;
     }
-    .subtitle {
-      font-size: 2.5rem;
+    .formobile {
+      display: block;
+    }
+    .p2esec-title {
+      font-size: 2.5rem !important;
+    }
+    .p2esec-subtitle {
+      font-size: 1.4rem !important;
+    }
+    .p2esec-img-text {
+      height: 20px;
+    }
+    .p2esec-text3 {
+      font-size: 0.6rem;
     }
   }
 
-  .rimg {
-    height: auto !important;
+  .useronline {
+    margin-top: 4rem;
+    .userborder {
+      border: 3px solid #1dff27;
+      padding: 0.1rem 3.5rem;
+    }
+    .usernumber {
+      color: #1dff27;
+      font-weight: bold;
+      font-size: 1.7rem;
+    }
+    .user-subtile {
+      font-size: 1.3rem;
+    }
   }
+
+  .sec {
+    margin-top: 3rem;
+  }
+  .playnowimg {
+    height: 100px !important;
+  }
+  .bovsmimg {
+    height: 100px !important;
+  }
+
+  // .bigcon {
+  //   .title {
+  //     font-size: 2rem;
+  //   }
+  //   .subtitle {
+  //     font-size: 2.5rem;
+  //   }
+  // }
 }
 
 .showcase-title {
