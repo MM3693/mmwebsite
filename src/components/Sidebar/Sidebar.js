@@ -75,43 +75,45 @@ function Sidebar() {
           </div>
 
           <Navbar.Toggle />
-          <Navbar.Offcanvas className="bg-dark" placement="end">
+          <Navbar.Offcanvas className="bg-light" placement="end">
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title>MetaMonopoly</Offcanvas.Title>
+              <Offcanvas.Title className="text-dark">
+                MetaMonopoly
+              </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Link className="nav-link text3" to="/">
+                <Link className="nav-link text3 text-dark" to="/">
                   Home
                 </Link>
                 <a
-                  className="nav-link text3"
+                  className="nav-link text3 text-dark"
                   target="_blank"
                   href="https://links.metamonopoly.org/"
                 >
                   Links
                 </a>
                 <a
-                  className="nav-link text3"
+                  className="nav-link text3 text-dark"
                   target="_blank"
                   href="https://whitepaper.metamonopoly.org/"
                 >
                   Whitepaper
                 </a>
-                <Link className="nav-link text3" to="/legal">
+                <Link className="nav-link text3 text-dark" to="/legal">
                   Legal
                 </Link>
                 <a
-                  className="nav-link text3"
+                  className="nav-link text3 text-dark"
                   target="_blank"
                   href="https://dao.metamonopoly.org/"
                 >
                   Dao Paper
                 </a>
-                <Link className="nav-link text3" to="/team">
+                <Link className="nav-link text3 text-dark" to="/team">
                   The Team
                 </Link>
-                <Link className="nav-link text3" to="/contact">
+                <Link className="nav-link text3 text-dark" to="/contact">
                   Contact Us
                 </Link>
               </Nav>

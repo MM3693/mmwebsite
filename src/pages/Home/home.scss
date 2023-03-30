@@ -92,6 +92,12 @@
 .hashimg {
   height: 221px;
 }
+.formobile {
+  display: none;
+}
+.fordesk {
+  display: block;
+}
 
 .p2esec {
   margin-top: 5rem;
@@ -108,6 +114,12 @@
 
 .useronline {
   margin-top: 7rem;
+  .useronlineimg {
+    background: url("../../assets/img/txt-only.png");
+    background-size: contain;
+    // background-repeat: no-repeat;
+    max-width: 100%;
+  }
   .userborder {
     border: 5px solid #1dff27;
     padding: 0.5rem 3.5rem;
@@ -122,14 +134,30 @@
   }
 }
 
-.sec {
-  margin-top: 5rem;
-}
-.playnowimg {
-  height: 120px;
+.secsection {
+  position: relative;
+  .sec {
+    margin-top: 5rem;
+  }
+  .playnowimg {
+    height: 220px;
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .topsec {
+    position: absolute;
+    top: 0%;
+  }
 }
 
 @media only screen and (max-width: 600px) {
+  .useronlineimg {
+    background-repeat: no-repeat !important;
+  }
   .logo-text {
     font-size: 1.7rem !important;
   }
@@ -184,6 +212,13 @@
         }
       }
     }
+  }
+
+  .formobile {
+    display: block;
+  }
+  .fordesk {
+    display: none;
   }
 
   .p2esec {

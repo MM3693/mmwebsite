@@ -4,7 +4,6 @@ import Web3 from "web3";
 import { Container, Row, Col } from "react-bootstrap";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Footer from "../../components/Footer/Footer";
-import { Link } from "react-router-dom";
 
 function Home() {
   const [web3, setWeb3] = useState("");
@@ -16,7 +15,7 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <>
       <div className="showcase">
         <div className="">
           <Sidebar />
@@ -70,7 +69,7 @@ function Home() {
                 <Row className="">
                   <Col>
                     <div className="text-center">
-                      <div className="formobile mt-2 text-center">
+                      <div className="formobile mt-3 text-center">
                         <img
                           className="img-fluid"
                           style={{ height: "81px" }}
@@ -195,15 +194,21 @@ function Home() {
           </Row>
         </Container>
        */}
+        <div className="rmt">
+          <img
+            className="img-fluid"
+            src={require("../../assets/img/images1.png").default}
+            alt=""
+          />
+        </div>
 
-        <Container className="rmt" fluid>
+        {/* <Container className="rmt" fluid>
           <Row>
             <Col>
               <div className="text-center">
                 <div className="">
                   <img
                     className="img-fluid p2esec-img-text"
-                    // style={{ height: "80px" }}
                     src={require("../../assets/img/Multiplayer-.png").default}
                     alt=""
                   />
@@ -232,7 +237,6 @@ function Home() {
                 <div className="">
                   <img
                     className="img-fluid p2esec-img-text"
-                    // style={{ height: "80px" }}
                     src={require("../../assets/img/FastGames.png").default}
                     alt=""
                   />
@@ -261,7 +265,6 @@ function Home() {
                 <div className="">
                   <img
                     className="img-fluid p2esec-img-text"
-                    // style={{ height: "80px" }}
                     src={require("../../assets/img/RealMoney-.png").default}
                     alt=""
                   />
@@ -287,10 +290,11 @@ function Home() {
             </Col>
           </Row>
         </Container>
+     */}
       </div>
 
       <div className="useronline">
-        <div className="">
+        <div className="useronlineimg w-100">
           <div className="mt-5 d-flex justify-content-center">
             <div className="userborder">
               <div className="usernumber">12,345</div>
@@ -310,8 +314,8 @@ function Home() {
         </div>
       </div>
 
-      <div className="d-flex justify-content-center sec">
-        <div>
+      {/* <div className="secsection border">
+        <div className="d-flex justify-content-center sec">
           <img
             className="img-fluid rimg"
             style={{ height: "700px" }}
@@ -319,23 +323,128 @@ function Home() {
             alt=""
           />
         </div>
-      </div>
-      <div className="gimg">
-        <img
-          className="img-fluid rimg w-100"
-          style={{ height: "700px" }}
-          src={require("../../assets/img/showcase.png").default}
-          alt=""
-        />
-      </div>
-      <div className="text-center">
-        <a href="https://galaxy.metamonopoly.org/" target="_blank">
+
+        <div className="gimg fordesk">
           <img
-            className="img-fluid playnowimg"
-            src={require("../../assets/img/PLAYNOW-Normal.png").default}
+            className="img-fluid rimg w-100"
+            style={{ height: "700px" }}
+            src={require("../../assets/img/Desktop-final-copy.png").default}
             alt=""
           />
-        </a>
+        </div>
+
+        <div className="gimg formobile">
+          <img
+            className="img-fluid rimg w-100"
+            style={{ height: "700px" }}
+            src={require("../../assets/img/image-.png").default}
+            alt=""
+          />
+        </div>
+        <div className="text-center">
+          <a href="https://galaxy.metamonopoly.org/" target="_blank">
+            <img
+              className="img-fluid playnowimg"
+              src={require("../../assets/img/PLAYNOW-Normal.png").default}
+              alt=""
+            />
+          </a>
+        </div>
+      </div> */}
+
+      <div className="secsection formobile">
+        <div className="d-flex justify-content-center sec">
+          <img
+            className="img-fluid rimg"
+            style={{ height: "700px" }}
+            src={require("../../assets/img/image-notxt.png").default}
+            alt=""
+          />
+        </div>
+
+        <div className="gimg">
+          <img
+            className="img-fluid rimg w-100"
+            style={{ height: "700px" }}
+            src={require("../../assets/img/image-text.png").default}
+            alt=""
+          />
+        </div>
+        <div className="text-center">
+          <a href="https://galaxy.metamonopoly.org/" target="_blank">
+            <img
+              className="img-fluid playnowimg"
+              src={require("../../assets/img/PLAYNOW-Normal.png").default}
+              alt=""
+            />
+          </a>
+        </div>
+      </div>
+
+      <div className="secsection fordesk mt-5">
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+
+        {/* <div className="text-center">
+          <a href="https://galaxy.metamonopoly.org/" target="_blank">
+            <img
+              className="img-fluid playnowimg"
+              src={require("../../assets/img/PLAYNOW-Normal.png").default}
+              alt=""
+            />
+          </a>
+        </div> */}
+        <div className="gimg fordesk">
+          <img
+            className="img-fluid rimg w-100"
+            style={{ height: "700px" }}
+            src={require("../../assets/img/Desktop-final-copy.png").default}
+            alt=""
+          />
+        </div>
+
+        <div className="d-flex justify-content-center sec ">
+          <img
+            className="img-fluid rimg topsec"
+            style={{ height: "700px" }}
+            src={require("../../assets/img/Start-Earning.png").default}
+            alt=""
+          />
+        </div>
+
+        <div className="text-center">
+          <a href="https://galaxy.metamonopoly.org/" target="_blank">
+            <img
+              className="img-fluid playnowimg"
+              src={require("../../assets/img/PLAYNOW-Normal.png").default}
+              alt=""
+            />
+          </a>
+        </div>
       </div>
 
       {/* <div className="">
@@ -453,8 +562,12 @@ function Home() {
       </Container>
       <Container className="mt-3" fluid>
         <div className="text-center">
-          <div className="text-uppercase font-weight-bold ct">
+          <div className="text-uppercase fordesk font-weight-bold ct">
             Check the popularity of every MMNFT by typing the code number:
+          </div>
+          <div className="text-uppercase formobile font-weight-bold ct">
+            Check the popularity of <br /> every MMNFT by typing <br /> the code
+            number:
           </div>
           <div className="mt-3 d-flex justify-content-center align-items-center">
             <img
@@ -485,7 +598,12 @@ function Home() {
             Zero royalties or fees collected <br />
             on any of the games or the NFTs
           </div>
-          <div className="ct textblue">Giving more power to the community</div>
+          <div className="ct fordesk textblue">
+            Giving more power to the community
+          </div>
+          <div className="ct formobile textblue">
+            Giving more power <br /> to the community
+          </div>
         </div>
       </div>
 
@@ -560,7 +678,7 @@ function Home() {
       </Container>
 
       <Footer />
-    </div>
+    </>
   );
 }
 

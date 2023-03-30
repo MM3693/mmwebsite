@@ -7,8 +7,45 @@
   // margin: 0 2rem;
 }
 
+.flink {
+  color: #737373 !important;
+  border-right: 3px solid #737373;
+  width: 100%;
+  text-align: center;
+
+  .flinka {
+    color: #737373 !important;
+  }
+}
+.flink:last-child {
+  color: #737373;
+  border-right: 0;
+  width: 100%;
+  text-align: center;
+}
+.mflink {
+  color: #737373 !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  // border-right: 3px solid #737373;
+  // text-align: center;
+  // width: 100%;
+  .flinka {
+    color: #737373 !important;
+  }
+}
+.formobile {
+  display: none !important;
+}
+
 @media only screen and (max-width: 600px) {
   .fsm {
     height: auto;
+  }
+  .fordesk {
+    display: none !important;
+  }
+  .formobile {
+    display: block !important;
   }
 }

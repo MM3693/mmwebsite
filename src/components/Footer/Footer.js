@@ -1,95 +1,249 @@
 import React from "react";
 import "./footer.scss";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     // style={{ marginTop: "10rem" }}
-    <footer className="mt-5 footer text-center">
-      <div className="">
-        <Container className="">
-          <div className="pt-4 text-center text-uppercase font-weight-bold ct">
-            Follow meta monopoly
-          </div>
-          <div className="mt-3 d-flex justify-content-center">
-            <div className="text-center">
-              <div className="">
-                <a
-                  href="https://opensea.io/collection/meta-monopoly"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    className="img-fluid fsm"
-                    src={require("../../assets/img/os1.png").default}
-                    alt=""
-                  />
-                </a>
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="">
-                <a
-                  href="https://twitter.com/MetaMonopoly"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    className="img-fluid fsm"
-                    src={require("../../assets/img/tw.png").default}
-                    alt=""
-                  />
-                </a>
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="">
-                <a
-                  href="https://www.instagram.com/meta.monopoly/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    className="img-fluid fsm"
-                    src={require("../../assets/img/ins.png").default}
-                    alt=""
-                  />
-                </a>
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="">
-                <a
-                  href="https://t.me/metamonopolyofficial"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    className="img-fluid fsm"
-                    src={require("../../assets/img/tg.png").default}
-                    alt=""
-                  />
-                </a>
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="">
-                <a
-                  href="https://www.tiktok.com/@metamonopoly"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    className="img-fluid fsm"
-                    src={require("../../assets/img/tik.png").default}
-                    alt=""
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
+    <>
+      <div className="fordesk mt-5 py-5 mx-5 d-flex">
+        <div className="h2 flink">
+          <a
+            href="https://galaxy.metamonopoly.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flinka"
+          >
+            Games
+          </a>
+        </div>
+        <div className="h2 flink">
+          <a
+            href="https://links.metamonopoly.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flinka"
+          >
+            Links
+          </a>
+        </div>
+        <div className="h2 flink">
+          <a
+            href="https://whitepaper.metamonopoly.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flinka"
+          >
+            Whitepaper
+          </a>
+        </div>
+        <div className="h2 flink">
+          <Link
+            to="/legal"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flinka"
+          >
+            Legal
+          </Link>
+        </div>
+        <div className="h2 flink">
+          <Link
+            to="/team"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flinka"
+          >
+            Team
+          </Link>
+        </div>
+        <div className="h2 flink">
+          <Link
+            to="/contact"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flinka"
+          >
+            Contact
+          </Link>
+        </div>
+      </div>
 
-          {/* <Row className="mt-5 d-flex justify-content-center">
+      <div className="formobile mt-5">
+        <Container className="text-center" fluid>
+          <Row>
+            <Col
+              className=" w-100"
+              style={{ borderRight: "3px solid #737373" }}
+            >
+              <div className="mflink">
+                <a
+                  href="https://galaxy.metamonopoly.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flinka"
+                >
+                  Games
+                </a>
+              </div>
+            </Col>
+            <Col
+              className=" w-100"
+              style={{ borderRight: "3px solid #737373" }}
+            >
+              <div className="mflink">
+                <a
+                  href="https://links.metamonopoly.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flinka"
+                >
+                  Links
+                </a>
+              </div>
+            </Col>
+            <Col className=" w-100">
+              <div className="mflink">
+                <a
+                  href="https://whitepaper.metamonopoly.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flinka"
+                >
+                  Whitepaper
+                </a>
+              </div>
+            </Col>
+          </Row>
+          <Row className="mt-3">
+            <Col className="w-100" style={{ borderRight: "3px solid #737373" }}>
+              <div className="mflink">
+                <Link
+                  to="/legal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flinka"
+                >
+                  Legal
+                </Link>
+              </div>
+            </Col>
+            <Col
+              className=" w-100"
+              style={{ borderRight: "3px solid #737373" }}
+            >
+              <div className="mflink">
+                <Link
+                  to="/team"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flinka"
+                >
+                  Team
+                </Link>
+              </div>
+            </Col>
+            <Col className=" w-100">
+              <div className="mflink">
+                <Link
+                  to="/contact"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flinka"
+                >
+                  Contact
+                </Link>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+      <footer className="mt-5 footer text-center">
+        <div className="">
+          <Container className="">
+            <div className="pt-4 text-center text-uppercase font-weight-bold ct">
+              Follow meta monopoly
+            </div>
+            <div className="mt-3 d-flex justify-content-center">
+              <div className="text-center">
+                <div className="">
+                  <a
+                    href="https://opensea.io/collection/meta-monopoly"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      className="img-fluid fsm"
+                      src={require("../../assets/img/os1.png").default}
+                      alt=""
+                    />
+                  </a>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="">
+                  <a
+                    href="https://twitter.com/MetaMonopoly"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      className="img-fluid fsm"
+                      src={require("../../assets/img/tw.png").default}
+                      alt=""
+                    />
+                  </a>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="">
+                  <a
+                    href="https://www.instagram.com/meta.monopoly/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      className="img-fluid fsm"
+                      src={require("../../assets/img/ins.png").default}
+                      alt=""
+                    />
+                  </a>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="">
+                  <a
+                    href="https://t.me/metamonopolyofficial"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      className="img-fluid fsm"
+                      src={require("../../assets/img/tg.png").default}
+                      alt=""
+                    />
+                  </a>
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="">
+                  <a
+                    href="https://www.tiktok.com/@metamonopoly"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      className="img-fluid fsm"
+                      src={require("../../assets/img/tik.png").default}
+                      alt=""
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* <Row className="mt-5 d-flex justify-content-center">
           <Col lg="2">
             <div className="text-center">
               <div className="">
@@ -148,9 +302,10 @@ function Footer() {
           
         </Row>
   */}
-        </Container>
-      </div>
-    </footer>
+          </Container>
+        </div>
+      </footer>
+    </>
   );
 }
 
