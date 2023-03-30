@@ -21,7 +21,7 @@ function Home() {
           <Sidebar />
         </div>
 
-        <div className="showcase-content">
+        <div className="showcase-content fordesk">
           <Container
             className="countd d-flex align-items-end justify-content-center h-100"
             fluid
@@ -31,7 +31,7 @@ function Home() {
                 <div className="text-white">
                   <Row className="">
                     <Col>
-                      <div className="text-center">
+                      <div className="text-center fordesk">
                         <div className="text-uppercase font-weight-bold showcase-title">
                           Monetize the galaxy with
                         </div>
@@ -52,6 +52,56 @@ function Home() {
                           </div>
                         </div>
                       </div>
+                      <div className="text-center formobile">
+                        <div className="text-center">
+                          <img
+                            className="img-fluid"
+                            src={
+                              require("../../assets/img/txt-solo.png").default
+                            }
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+
+        <div className="showcase-content formobile">
+          <Container
+            className="countd d-flex align-items-end justify-content-center h-100"
+            fluid
+          >
+            <Row>
+              <Col lg="12">
+                <div className="text-white">
+                  <Row className="">
+                    <Col>
+                      <div className="text-center">
+                        <div className="text-center mb-1">
+                          <img
+                            className="img-fluid"
+                            src={
+                              require("../../assets/img/txt-solo.png").default
+                            }
+                            alt=""
+                          />
+                        </div>
+                        <div className="text-center">
+                          <div className="formobile text-center">
+                            <img
+                              className="img-fluid"
+                              style={{ height: "81px" }}
+                              src={require("../../assets/img/ETH.png").default}
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                      </div>
                     </Col>
                   </Row>
                 </div>
@@ -61,7 +111,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="p2esec bigcon">
+      <div className="p2esec fordesk bigcon">
         <Container className="d-flex justify-content-center" fluid>
           <Row>
             <Col lg="12">
@@ -291,6 +341,48 @@ function Home() {
           </Row>
         </Container>
      */}
+      </div>
+
+      <div className="p2esec formobile bigcon">
+        <Container className="d-flex justify-content-center" fluid>
+          <Row>
+            <Col lg="12">
+              <div className="text-white">
+                <Row className="">
+                  <Col>
+                    <div className="text-center mt-4">
+                      {/* <div className="formobile text-center">
+                        <img
+                          className="img-fluid"
+                          style={{ height: "81px" }}
+                          src={require("../../assets/img/ETH.png").default}
+                          alt=""
+                        />
+                      </div> */}
+                      <div className="text-uppercase font-weight-bold  p2esec-title title">
+                        Play-to-earn
+                      </div>
+                      <div
+                        style={{ color: "#000" }}
+                        className="bg-white text-uppercase font-weight-bold p2esec-subtitle subtitle"
+                      >
+                        On ethereum
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+
+        <div className="rmt">
+          <img
+            className="img-fluid"
+            src={require("../../assets/img/images1.png").default}
+            alt=""
+          />
+        </div>
       </div>
 
       <div className="useronline">
