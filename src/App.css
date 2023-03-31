@@ -4,11 +4,17 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Montserrat VariableFont";
+  src: local("Montserrat VariableFont"),
+    url(./assets/Montserrat/Montserrat-VariableFont_wght.ttf) format("truetype");
+}
+
 body {
   /* background-color: #0d0d0e !important; */
   background-color: #000 !important;
-
   color: #fff !important;
+  font-family: "Montserrat VariableFont" !important;
 }
 
 html {
@@ -38,6 +44,13 @@ html {
 
 a {
   text-decoration: none !important;
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("./assets/img/Menu.png") !important;
+}
+.navbar-dark .navbar-toggler {
+  border: none !important;
 }
 
 @media only screen and (max-width: 600px) {

@@ -4,6 +4,8 @@ import Web3 from "web3";
 import { Container, Row, Col } from "react-bootstrap";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Footer from "../../components/Footer/Footer";
+import Carousel1 from "../../components/Carousel/Carousel1";
+import Carousel2 from "../../components/Carousel/Carousel2";
 
 function Home() {
   const [web3, setWeb3] = useState("");
@@ -31,7 +33,7 @@ function Home() {
                 <div className="text-white">
                   <Row className="">
                     <Col>
-                      <div className="text-center fordesk">
+                      <div className="text-center">
                         <div className="text-uppercase font-weight-bold showcase-title">
                           Monetize the galaxy with
                         </div>
@@ -50,17 +52,6 @@ function Home() {
                           <div className="py-1 text-uppercase font-weight-bold">
                             Get started
                           </div>
-                        </div>
-                      </div>
-                      <div className="text-center formobile">
-                        <div className="text-center">
-                          <img
-                            className="img-fluid"
-                            src={
-                              require("../../assets/img/txt-solo.png").default
-                            }
-                            alt=""
-                          />
                         </div>
                       </div>
                     </Col>
@@ -92,11 +83,14 @@ function Home() {
                           />
                         </div>
                         <div className="text-center">
-                          <div className="formobile text-center">
+                          <div className="text-center">
                             <img
                               className="img-fluid"
-                              style={{ height: "81px" }}
-                              src={require("../../assets/img/ETH.png").default}
+                              style={{ height: "91px" }}
+                              src={
+                                require("../../assets/img/eth-trans.png")
+                                  .default
+                              }
                               alt=""
                             />
                           </div>
@@ -112,22 +106,23 @@ function Home() {
       </div>
 
       <div className="p2esec fordesk bigcon">
-        <Container className="d-flex justify-content-center" fluid>
+        <Container className="d-flex justify-content-center">
           <Row>
             <Col lg="12">
               <div className="text-white">
                 <Row className="">
                   <Col>
                     <div className="text-center">
-                      <div className="formobile mt-3 text-center">
-                        <img
-                          className="img-fluid"
-                          style={{ height: "81px" }}
-                          src={require("../../assets/img/ETH.png").default}
-                          alt=""
-                        />
-                      </div>
-                      <div className="text-uppercase font-weight-bold  p2esec-title title">
+                      <img
+                        style={{ height: "150px" }}
+                        className="img-fluid"
+                        src={
+                          require("../../assets/img/PLAY-TO-EARN--white.png")
+                            .default
+                        }
+                        alt=""
+                      />
+                      {/* <div className="text-uppercase font-weight-bold  p2esec-title title">
                         Play-to-earn
                       </div>
                       <div
@@ -135,12 +130,14 @@ function Home() {
                         className="bg-white text-uppercase font-weight-bold p2esec-subtitle subtitle"
                       >
                         On ethereum
-                      </div>
-                      <div className="fordesk text-center py-5">
+                      </div> */}
+                      <div className="text-center py-5">
                         <img
                           className="img-fluid"
-                          style={{ height: "121px" }}
-                          src={require("../../assets/img/ETH.png").default}
+                          style={{ height: "151px" }}
+                          src={
+                            require("../../assets/img/eth-trans.png").default
+                          }
                           alt=""
                         />
                       </div>
@@ -343,23 +340,25 @@ function Home() {
      */}
       </div>
 
-      <div className="p2esec formobile bigcon">
-        <Container className="d-flex justify-content-center" fluid>
+      <div className="p2esec formobile bigcon mt-3">
+        <Container className="d-flex justify-content-center px-4">
           <Row>
             <Col lg="12">
               <div className="text-white">
                 <Row className="">
                   <Col>
                     <div className="text-center mt-4">
-                      {/* <div className="formobile text-center">
+                      <div className="formobile text-center">
                         <img
                           className="img-fluid"
-                          style={{ height: "81px" }}
-                          src={require("../../assets/img/ETH.png").default}
+                          src={
+                            require("../../assets/img/PLAY-TO-EARN--white.png")
+                              .default
+                          }
                           alt=""
                         />
-                      </div> */}
-                      <div className="text-uppercase font-weight-bold  p2esec-title title">
+                      </div>
+                      {/* <div className="text-uppercase font-weight-bold  p2esec-title title">
                         Play-to-earn
                       </div>
                       <div
@@ -367,7 +366,7 @@ function Home() {
                         className="bg-white text-uppercase font-weight-bold p2esec-subtitle subtitle"
                       >
                         On ethereum
-                      </div>
+                      </div> */}
                     </div>
                   </Col>
                 </Row>
@@ -393,7 +392,8 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="d-flex justify-content-center ">
+
+        <div className="d-flex fordesk justify-content-center ">
           <div className="text-uppercase d-flex align-items-center py-1">
             <img
               className="img-fluid"
@@ -402,6 +402,23 @@ function Home() {
               alt=""
             />
             <span className="user-subtile">User Online</span>
+          </div>
+        </div>
+        <div className=" d-flex justify-content-center text-center">
+          <div className="formobile text-uppercase d-flex align-items-center py-1">
+            <div className="d-flex align-items-center">
+              <div className="mx-1">
+                <img
+                  className="img-fluid"
+                  style={{ height: "19px" }}
+                  src={require("../../assets/img/green-spot.png").default}
+                  alt=""
+                />
+              </div>
+              <div className="mx-1">
+                <span className="user-subtile">Users Online</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -570,7 +587,7 @@ function Home() {
         </Container>
       </div> */}
       <Container>
-        <div className="text-center mt-3">
+        <div className="text-center mt-5">
           <img
             className="img-fluid"
             src={require("../../assets/img/m1.png").default}
@@ -578,13 +595,17 @@ function Home() {
           />
         </div>
       </Container>
-      <div className="text-center mt-4">
+      {/* <div className="text-center mt-4">
         <img
           className="img-fluid"
           src={require("../../assets/img/m2.png").default}
           alt=""
         />
+      </div> */}
+      <div className="text-center mt-5">
+        <Carousel2 />
       </div>
+
       <Container>
         <div className="text-center my-4">
           {/* // py-5 */}
@@ -595,21 +616,32 @@ function Home() {
           />
         </div>
       </Container>
+
       <div className="text-center">
+        <Carousel1 />
+      </div>
+      {/* <div className="text-center">
         <img
           className="img-fluid"
           src={require("../../assets/img/m4.png").default}
           alt=""
         />
-      </div>
-      <div className="text-center py-2">
+      </div> */}
+      <div className="text-center fordesk py-2">
         <img
           className="img-fluid"
           src={require("../../assets/img/m5.png").default}
           alt=""
         />
       </div>
-      <Container>
+      <div className="text-center formobile">
+        <img
+          className="img-fluid"
+          src={require("../../assets/img/WeBringMemesToLife.png").default}
+          alt=""
+        />
+      </div>
+      <Container className="fordesk">
         <Row>
           <Col>
             <div className="">
@@ -652,18 +684,57 @@ function Home() {
           </Col>
         </Row>
       </Container>
-      <Container className="mt-3" fluid>
+
+      <Container className="formobile">
+        <Row>
+          <Col>
+            <div className="">
+              <div className="text-center">
+                <div className="font-weight-bold fmlogo-text">
+                  Browse our videos
+                </div>
+                <div className="mt-2 d-flex justify-content-center">
+                  <div className="">
+                    <a
+                      href="https://www.instagram.com/meta.monopoly/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        className="img-fluid bovsmimg"
+                        src={require("../../assets/img/ig.png").default}
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                  <div className="">
+                    <a
+                      href="https://www.tiktok.com/@metamonopoly"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        className="img-fluid bovsmimg"
+                        src={require("../../assets/img/tt.png").default}
+                        alt=""
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+
+      <Container className="fordesk mt-3" fluid>
         <div className="text-center">
-          <div className="text-uppercase fordesk font-weight-bold ct">
+          <div className="font-weight-bold ct">
             Check the popularity of every MMNFT by typing the code number:
           </div>
-          <div className="text-uppercase formobile font-weight-bold ct">
-            Check the popularity of <br /> every MMNFT by typing <br /> the code
-            number:
-          </div>
+
           <div className="mt-3 d-flex justify-content-center align-items-center">
             <img
-              // style={{ height: "221px" }}
               className="img-fluid hashimg"
               src={require("../../assets/img/hash.png").default}
               alt=""
@@ -677,7 +748,32 @@ function Home() {
           </div>
         </div>
       </Container>
-      <div className="mt-3">
+
+      <Container className="formobile mt-3" fluid>
+        <div className="text-center">
+          <div className="mct">
+            Check the popularity of <br /> every MMNFT by typing <br /> the code
+            number:
+          </div>
+          <div className="mt-3 d-flex justify-content-center align-items-center">
+            <div className="mx-2">
+              <img
+                className="img-fluid mhashimg"
+                src={require("../../assets/img/hash.png").default}
+                alt=""
+              />
+            </div>
+            <div className="mx-3 text-left">
+              <div className="fw-500 logo-text mmsearchtext">
+                #mmnft<span className="text-muted">172</span>
+              </div>
+              <div className="fw-500 m-0 logo-text text-muted">3.7m views</div>
+            </div>
+          </div>
+        </div>
+      </Container>
+
+      <div className="fordesk mt-3">
         <div className="">
           <img
             className="img-fluid"
@@ -690,18 +786,33 @@ function Home() {
             Zero royalties or fees collected <br />
             on any of the games or the NFTs
           </div>
-          <div className="ct fordesk textblue">
-            Giving more power to the community
+          <div className="ct textblue">Giving more power to the community</div>
+        </div>
+      </div>
+
+      <div className="formobile mt-3">
+        <div className="">
+          <img
+            className="img-fluid"
+            src={require("../../assets/img/RoyaltiesGraph.png").default}
+            alt=""
+          />
+        </div>
+        <div className=" text-center">
+          <div className="mct">
+            Zero royalties or fees collected <br />
+            on any of the games or the NFTs
           </div>
-          <div className="ct formobile textblue">
+
+          <div className="mct formobile textblue">
             Giving more power <br /> to the community
           </div>
         </div>
       </div>
 
-      <Container style={{ marginTop: "2rem" }} className="">
+      <Container style={{ marginTop: "2rem" }} className="fordesk">
         <div className="text-center text-uppercase font-weight-bold logo-text">
-          Joun our community
+          JOIN our community
         </div>
         <Row className="mt-5">
           <Col lg="4">
@@ -759,6 +870,76 @@ function Home() {
                   />
                 </div>
                 <div className="mt-4">
+                  <div className="text-uppercase font-weight-bold text3">
+                    Get MMnft
+                  </div>
+                </div>
+              </a>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+
+      <Container style={{ marginTop: "2rem" }} className="formobile">
+        <div className="text-center text-uppercase font-weight-bold logo-text">
+          JOIN our community
+        </div>
+        <Row className="mt-3">
+          <Col lg="4">
+            <div className="text-center">
+              <div className="">
+                <img
+                  className="img-fluid smm"
+                  src={require("../../assets/img/sm.png").default}
+                  alt=""
+                />
+              </div>
+              <div className="mt-2">
+                <div className="text-uppercase font-weight-bold text3">
+                  Shared memes
+                </div>
+              </div>
+            </div>
+          </Col>
+          <Col lg="4" className="rmt-1">
+            <div className="text-center">
+              <a
+                className="text-white"
+                style={{ textDecoration: "none" }}
+                href="https://galaxy.metamonopoly.org/"
+                target="_blank"
+              >
+                <div className="">
+                  <img
+                    className="img-fluid smm"
+                    src={require("../../assets/img/pn.png").default}
+                    alt=""
+                  />
+                </div>
+                <div className="mt-2">
+                  <div className="text-uppercase font-weight-bold text3">
+                    Play now
+                  </div>
+                </div>
+              </a>
+            </div>
+          </Col>
+          <Col lg="4" className="rmt-1">
+            <div className="text-center">
+              <a
+                className="text-white"
+                style={{ textDecoration: "none" }}
+                href="https://opensea.io/collection/meta-monopoly"
+                target="_blank"
+              >
+                <div className="">
+                  <img
+                    className="img-fluid smm"
+                    src={require("../../assets/img/os.png").default}
+                    alt=""
+                  />
+                </div>
+                <div className="mt-2">
                   <div className="text-uppercase font-weight-bold text3">
                     Get MMnft
                   </div>
