@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import img1 from "../../assets/img/cauro/1.jpeg";
-import img2 from "../../assets/img/cauro/2.jpeg";
-import img3 from "../../assets/img/cauro/3.jpeg";
-import img4 from "../../assets/img/cauro/4.jpeg";
-import img5 from "../../assets/img/cauro/5.jpeg";
-import img6 from "../../assets/img/cauro/6.jpeg";
-import img7 from "../../assets/img/cauro/7.jpeg";
-import img8 from "../../assets/img/cauro/8.jpeg";
-import img9 from "../../assets/img/cauro/9.jpeg";
-import img10 from "../../assets/img/cauro/10.jpeg";
+import img1 from "../../assets/img/cauro/1.png";
+import img2 from "../../assets/img/cauro/2.png";
+import img3 from "../../assets/img/cauro/3.png";
+import img4 from "../../assets/img/cauro/4.png";
+import img5 from "../../assets/img/cauro/5.png";
+import img6 from "../../assets/img/cauro/6.png";
+import img7 from "../../assets/img/cauro/7.png";
+import img8 from "../../assets/img/cauro/8.png";
+import img9 from "../../assets/img/cauro/9.png";
+import img10 from "../../assets/img/cauro/10.png";
 
 export default class Carousel2 extends Component {
   render() {

@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import img1 from "../../assets/img/videoviewimg/1.jpeg";
+import img1 from "../../assets/img/videoviewimg/1.png";
 import img2 from "../../assets/img/videoviewimg/2.png";
-import img3 from "../../assets/img/videoviewimg/3.jpeg";
-import img4 from "../../assets/img/videoviewimg/4.jpeg";
-import img5 from "../../assets/img/videoviewimg/5.jpeg";
-import img6 from "../../assets/img/videoviewimg/6.jpeg";
-import img7 from "../../assets/img/videoviewimg/7.jpeg";
-import img8 from "../../assets/img/videoviewimg/8.jpeg";
-import img9 from "../../assets/img/videoviewimg/9.jpeg";
-import img10 from "../../assets/img/videoviewimg/10.jpeg";
-import img11 from "../../assets/img/videoviewimg/11.jpeg";
-import img12 from "../../assets/img/videoviewimg/12.jpeg";
-import img13 from "../../assets/img/videoviewimg/13.jpeg";
-import img14 from "../../assets/img/videoviewimg/14.jpeg";
-import img15 from "../../assets/img/videoviewimg/15.jpeg";
+import img3 from "../../assets/img/videoviewimg/3.png";
+import img4 from "../../assets/img/videoviewimg/4.png";
+import img5 from "../../assets/img/videoviewimg/5.png";
+import img6 from "../../assets/img/videoviewimg/6.png";
+import img7 from "../../assets/img/videoviewimg/7.png";
+import img8 from "../../assets/img/videoviewimg/8.png";
+import img9 from "../../assets/img/videoviewimg/9.png";
+import img10 from "../../assets/img/videoviewimg/10.png";
+import img11 from "../../assets/img/videoviewimg/11.png";
+import img12 from "../../assets/img/videoviewimg/12.png";
+import img13 from "../../assets/img/videoviewimg/13.png";
+import img14 from "../../assets/img/videoviewimg/14.png";
+import img15 from "../../assets/img/videoviewimg/15.png";
 
 export default class Carousel1 extends Component {
   render() {
