@@ -1,4 +1,8 @@
-@import "../../assets//scss/global.scss";
+@mixin breakpoint($bp) {
+  @media screen and (max-width: $bp) {
+    @content;
+  }
+}
 
 .bar-chart-loader {
   display: flex;
