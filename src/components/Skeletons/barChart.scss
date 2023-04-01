@@ -1,0 +1,41 @@
+@import "../../assets//scss/global.scss";
+
+.bar-chart-loader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
+  padding: 20px;
+  background-color: #bcb7b71a;
+  overflow: hidden; /* added to hide overflowing bars */
+
+  @include breakpoint(1024px) {
+    height: 300px;
+  }
+
+  @include breakpoint(768px) {
+    height: 300px;
+  }
+}
+
+.bar-chart-loader-bar {
+  width: 25px;
+  background-color: #e0e0e0;
+  border-radius: 5px 5px 0 0;
+  animation: loading 1s linear infinite alternate;
+  animation-fill-mode: forwards; /* added to keep the last frame of the animation */
+
+  @include breakpoint(768px) {
+    width: 15px;
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-color: hsla(200, 5%, 63%, 0.335);
+  }
+  100% {
+    background-color: hsl(200, 20%, 100%);
+  }
+}
