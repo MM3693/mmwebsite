@@ -435,11 +435,17 @@ function Stats() {
                   padding={0.3}
                   labelSkipWidth={12}
                   labelSkipHeight={12}
-                  colors={{ scheme: "greys" }}
                   axisLeft={null}
                   enableLabel={false}
                   borderRadius={5}
                   theme={theme}
+                  onMouseEnter={(_data, event) => {
+                    event.target.style.fill = "#fff";
+                  }}
+                  onMouseLeave={(_data, event) => {
+                    event.target.style.fill = "#777777";
+                  }}
+                  colors={(bar) => "#777777"}
                   tooltip={({ id, value, color }) => (
                     <div
                       style={{
@@ -476,6 +482,7 @@ function Stats() {
                   </span>
                 </div>
               </div>
+
               <div className="users-section__right-col">
                 <div className="active-users">
                   <h3>Active Users</h3>
@@ -511,11 +518,17 @@ function Stats() {
                       padding={0.3}
                       labelSkipWidth={12}
                       labelSkipHeight={12}
-                      colors={{ scheme: "greys" }}
                       axisLeft={null}
                       enableLabel={false}
                       borderRadius={5}
                       theme={theme}
+                      onMouseEnter={(_data, event) => {
+                        event.target.style.fill = "#fff";
+                      }}
+                      onMouseLeave={(_data, event) => {
+                        event.target.style.fill = "#777777";
+                      }}
+                      colors={(bar) => "#777777"}
                       tooltip={({ id, value, color }) => (
                         <div
                           style={{
