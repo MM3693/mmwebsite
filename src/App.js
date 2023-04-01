@@ -9,8 +9,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Stats from "./pages/Stats/Stats";
 
-import "./assets/scss/global.scss";
-
 function App() {
   return (
     <>
