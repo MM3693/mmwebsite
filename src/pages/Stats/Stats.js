@@ -11,6 +11,8 @@ import BarChartLoader from "../../components/Skeletons/BarChart";
 import "./stats.scss";
 
 import { ResponsiveBar } from "@nivo/bar";
+import Sidebar from "../../components/Sidebar/Sidebar";
+import Footer from "../../components/Footer/Footer";
 
 export const options = {
   maintainAspectRatio: false,
@@ -352,6 +354,9 @@ function Stats() {
 
   return (
     <section className="admin-dashboard">
+      <div className="">
+        <Sidebar />
+      </div>
       <div className="admin-dashboard__container">
         <div className="admin-dashboard__content">
           <div className="admin-dashboard__content__header">
@@ -547,6 +552,7 @@ function Stats() {
           </div>
         </div>
       </div>
+      <Footer />
     </section>
   );
 }
