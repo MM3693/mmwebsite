@@ -92,6 +92,31 @@ const formatTime = (inputSeconds) => {
   return timeString;
 };
 
+const formatTimeForUsersSection = (inputSeconds) => {
+  const hours = Math.floor(inputSeconds / 3600);
+  const remainingSecondsAfterHours = inputSeconds % 3600;
+  const minutes = Math.floor(remainingSecondsAfterHours / 60);
+  const seconds = remainingSecondsAfterHours % 60;
+
+  let timeString = "";
+
+  // if hours is greater than 0, then display hours
+  // if minutes is greater than 0, then display minutes
+  // if seconds is greater than 0, then display seconds
+  // if hours, minutes and seconds are all 0, then display 0 seconds
+  // if hours is 0, then display minutes
+  // if minutes is 0, then display seconds
+  if (hours > 0) {
+    timeString += hours + " Hrs ";
+  } else if (minutes > 0) {
+    timeString += minutes + " Mins ";
+  } else if (seconds > 0 || (hours === 0 && minutes === 0)) {
+    timeString += seconds + " Secs";
+  }
+
+  return timeString;
+};
+
 function Stats() {
   const [walletsChartDuration, setWalletsChartDuration] = useState(
     chartDuration[30]
@@ -446,7 +471,8 @@ function Stats() {
                 <div className="stats-container">
                   <h3>Avg Play Time</h3>
                   <span className="stats-container__value">
-                    {formatTime(gamePlay.averagePlayTime)}
+                    {/* {formatTime(gamePlay.averagePlayTime)} */}
+                    {formatTimeForUsersSection(gamePlay.averagePlayTime)}
                   </span>
                 </div>
               </div>
