@@ -1,0 +1,463 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap");
+
+$maxWidth: 1920;
+$maxWidthContainer: 1180;
+
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+
+  @if $type==1 {
+    // Только если меньше контейнера
+    #{$property}: $startSize + px;
+
+    @media (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(
+        #{$minSize + px} + #{$addSize} *
+          ((100vw - 320px) / #{$maxWidthContainer - 320})
+      );
+    }
+  } @else if $type==2 {
+    // Только если больше контейнера
+    #{$property}: $startSize + px;
+
+    @media (min-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(
+        #{$minSize + px} #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
+      );
+    }
+  } @else {
+    // Всегда
+    #{$property}: calc(
+      #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
+    );
+  }
+}
+
+@mixin breakpoint($bp) {
+  @media screen and (max-width: $bp) {
+    @content;
+  }
+}
+
+.admin-dashboard {
+  position: relative;
+
+  &__container {
+    @include adaptiv-value("padding-top", 50, 50, 0);
+    @include adaptiv-value("padding-left", 100, 50, 0);
+    @include adaptiv-value("padding-right", 100, 50, 0);
+    @include adaptiv-value("padding-bottom", 50, 10, 0);
+
+    @include breakpoint(1024px) {
+      @include adaptiv-value("padding-left", 100, 20, 0);
+      @include adaptiv-value("padding-right", 100, 20, 0);
+    }
+
+    @include breakpoint(768px) {
+      @include adaptiv-value("padding-left", 100, 20, 0);
+      @include adaptiv-value("padding-right", 100, 20, 0);
+    }
+
+    @include breakpoint(425px) {
+      @include adaptiv-value("padding-left", 100, 10, 0);
+      @include adaptiv-value("padding-right", 100, 10, 0);
+      @include adaptiv-value("padding-bottom", 100, 10, 0);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+      @include adaptiv-value("font-size", 36, 18, 0);
+      @include adaptiv-value("margin-bottom", 50, 25, 0);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      @include breakpoint(768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      @include breakpoint(425px) {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      &--title {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        color: #f5f5f5;
+        text-transform: uppercase;
+        font-size: 2rem;
+
+        @include breakpoint(1024px) {
+          font-size: 1.8rem;
+        }
+
+        @include breakpoint(768px) {
+          font-size: 1.8rem;
+        }
+
+        @include breakpoint(425px) {
+          font-size: 1.5rem;
+        }
+
+        &--sup {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: #f5f5f5;
+          text-transform: none;
+          vertical-align: super;
+
+          font-family: "Montserrat", sans-serif;
+
+          @include breakpoint(1024px) {
+            font-size: 1rem;
+          }
+
+          @include breakpoint(768px) {
+            font-size: 1rem;
+          }
+
+          @include breakpoint(425px) {
+            font-size: 1rem;
+          }
+        }
+      }
+
+      &--online {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & .online {
+          &::before {
+            content: "";
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #00ff00;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    &__body {
+      display: flex;
+      gap: 50px;
+      flex-direction: column;
+
+      .total-wallets-connected {
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+        gap: 10px;
+
+        & h3 {
+          font-size: 1.5rem;
+          font-weight: 700;
+          font-family: "Montserrat", sans-serif;
+
+          @include breakpoint(425px) {
+            font-size: 1rem;
+          }
+        }
+
+        &__value {
+          font-size: 2rem;
+          font-weight: 700;
+          font-family: "Montserrat", sans-serif;
+
+          @include breakpoint(425px) {
+            font-size: 1.5rem;
+          }
+        }
+      }
+
+      .wallets-chart-duration-selectors__button {
+        color: #fff;
+        background-color: transparent;
+        border: none;
+        margin: 1rem 0.2rem 0px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 700;
+        font-family: "Montserrat", sans-serif;
+        padding: 0rem 0.5rem;
+      }
+
+      .wallets-chart-duration-selectors__button--active {
+        color: #3f72f5;
+        border-radius: 4px;
+        border: 1px solid #3f72f5;
+      }
+
+      .wallets-connected-chart {
+        width: 100%;
+        height: 500px;
+      }
+
+      & .users-section {
+        background-color: #1a1b1d;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 0.8fr 3fr;
+
+        @include breakpoint(1024px) {
+          grid-template-columns: 1.1fr 2.4fr;
+        }
+
+        @include breakpoint(768px) {
+          grid-template-columns: 1fr;
+        }
+
+        @include breakpoint(425px) {
+          grid-template-columns: 1fr;
+        }
+
+        &__left-col {
+          height: 100%;
+          padding: 2rem;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 30px;
+
+          @include breakpoint(1024px) {
+            padding: 1.5rem;
+            gap: 20px;
+          }
+
+          @include breakpoint(768px) {
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 1rem;
+            gap: 20px;
+          }
+
+          @include breakpoint(425px) {
+            padding: 1rem;
+          }
+
+          & .stats-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid #3f72f5;
+            border-radius: 10px;
+            padding: 2.5rem 1rem;
+            height: 50%;
+
+            @include breakpoint(1024px) {
+              padding: 1rem 1rem;
+            }
+
+            @include breakpoint(768px) {
+              height: 100%;
+              width: 100%;
+            }
+
+            & h3 {
+              font-size: 1.5rem;
+              font-weight: 700;
+              font-family: "Montserrat", sans-serif;
+              text-align: center;
+
+              @include breakpoint(1024px) {
+                font-size: 1.3rem;
+              }
+
+              @include breakpoint(425px) {
+                font-size: 1rem;
+              }
+            }
+
+            &__value {
+              font-size: 3rem;
+              font-weight: 700;
+              font-family: "Montserrat", sans-serif;
+              text-align: center;
+
+              @include breakpoint(1024px) {
+                font-size: 2.5rem;
+              }
+
+              @include breakpoint(425px) {
+                font-size: 2rem;
+              }
+            }
+          }
+        }
+
+        &__right-col {
+          height: 100%;
+          padding: 2rem;
+
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+
+          @include breakpoint(425px) {
+            padding: 1rem;
+          }
+
+          .active-users-chart {
+            // width: 100%;
+            height: 400px;
+          }
+
+          & .active-users {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            @include breakpoint(425px) {
+              gap: 5px;
+            }
+
+            & h3 {
+              font-size: 1.5rem;
+              font-weight: 700;
+              font-family: "Montserrat", sans-serif;
+            }
+
+            &__value {
+              font-size: 1rem;
+              font-weight: 700;
+              font-family: "Montserrat", sans-serif;
+            }
+          }
+        }
+      }
+
+      & .transactions-section {
+        width: 100%;
+
+        &__header-boxes {
+          display: flex;
+          flex-direction: row;
+          gap: 30px;
+          justify-content: space-between;
+          align-items: stretch;
+
+          @include breakpoint(425px) {
+            flex-direction: column;
+            gap: 20px;
+          }
+
+          &__box {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 2rem 1rem;
+            border: 3px solid #3f72f5;
+            border-radius: 10px;
+
+            @include breakpoint(425px) {
+              padding: 1.5rem;
+            }
+
+            & h3 {
+              font-size: 1.3rem;
+              font-weight: 700;
+              font-family: "Montserrat", sans-serif;
+              text-align: center;
+
+              @include breakpoint(425px) {
+                font-size: 1rem;
+              }
+            }
+
+            &--value {
+              font-size: 2rem;
+              font-weight: 700;
+              font-family: "Montserrat", sans-serif;
+
+              @include breakpoint(425px) {
+                font-size: 1.5rem;
+              }
+            }
+          }
+        }
+
+        &__footer {
+          display: flex;
+          flex-direction: row;
+          gap: 30px;
+          justify-content: space-between;
+          margin-top: 30px;
+
+          @include breakpoint(768px) {
+            flex-direction: column;
+            gap: 20px;
+          }
+
+          @include breakpoint(425px) {
+            flex-direction: column;
+            gap: 20px;
+          }
+
+          &__box {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: end;
+
+            @include breakpoint(425px) {
+              gap: 5px;
+            }
+
+            & h3 {
+              font-size: 1.3rem;
+              font-weight: 700;
+              font-family: "Montserrat", sans-serif;
+
+              @include breakpoint(1024px) {
+                font-size: 1.1rem;
+              }
+
+              @include breakpoint(425px) {
+                font-size: 1rem;
+              }
+            }
+
+            &--value {
+              font-size: 2rem;
+              font-weight: 700;
+              font-family: "Montserrat", sans-serif;
+
+              @include breakpoint(1024px) {
+                font-size: 1.5rem;
+              }
+
+              @include breakpoint(768px) {
+                font-size: 1.5rem;
+              }
+
+              @include breakpoint(425px) {
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
