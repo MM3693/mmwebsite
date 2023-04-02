@@ -25,7 +25,7 @@ export default class Carousel1 extends Component {
       slidesToScroll: 1,
       autoplay: true,
       arrows: false,
-      speed: 2000,
+      speed: 3000,
       autoplaySpeed: 0,
       cssEase: "linear",
 

@@ -10,6 +10,16 @@ import img7 from "../../assets/img/cauro/7.png";
 import img8 from "../../assets/img/cauro/8.png";
 import img9 from "../../assets/img/cauro/9.png";
 import img10 from "../../assets/img/cauro/10.png";
+import img11 from "../../assets/img/cauro/11.png";
+import img12 from "../../assets/img/cauro/12.png";
+import img13 from "../../assets/img/cauro/13.png";
+import img14 from "../../assets/img/cauro/14.png";
+import img15 from "../../assets/img/cauro/15.png";
+import img16 from "../../assets/img/cauro/16.png";
+import img17 from "../../assets/img/cauro/17.png";
+import img18 from "../../assets/img/cauro/18.png";
+import img19 from "../../assets/img/cauro/19.png";
+import img20 from "../../assets/img/cauro/20.png";
 
 export default class Carousel2 extends Component {
   render() {
@@ -20,7 +30,7 @@ export default class Carousel2 extends Component {
       slidesToScroll: 1,
       autoplay: true,
       arrows: false,
-      speed: 2000,
+      speed: 3000,
       autoplaySpeed: 0,
       cssEase: "linear",
 
@@ -71,12 +81,6 @@ export default class Carousel2 extends Component {
             <img className="img-fluid" src={img5} alt="" />
           </div>
           <div className="">
-            <img className="img-fluid" src={img3} alt="" />
-          </div>
-        </Slider>
-
-        <Slider {...settings}>
-          <div className="">
             <img className="img-fluid" src={img6} alt="" />
           </div>
           <div className="">
@@ -91,20 +95,38 @@ export default class Carousel2 extends Component {
           <div className="">
             <img className="img-fluid" src={img10} alt="" />
           </div>
+        </Slider>
+
+        <Slider {...settings}>
           <div className="">
-            <img className="img-fluid" src={img1} alt="" />
+            <img className="img-fluid" src={img11} alt="" />
           </div>
           <div className="">
-            <img className="img-fluid" src={img7} alt="" />
+            <img className="img-fluid" src={img12} alt="" />
           </div>
           <div className="">
-            <img className="img-fluid" src={img8} alt="" />
+            <img className="img-fluid" src={img13} alt="" />
           </div>
           <div className="">
-            <img className="img-fluid" src={img9} alt="" />
+            <img className="img-fluid" src={img14} alt="" />
           </div>
           <div className="">
-            <img className="img-fluid" src={img10} alt="" />
+            <img className="img-fluid" src={img15} alt="" />
+          </div>
+          <div className="">
+            <img className="img-fluid" src={img16} alt="" />
+          </div>
+          <div className="">
+            <img className="img-fluid" src={img17} alt="" />
+          </div>
+          <div className="">
+            <img className="img-fluid" src={img18} alt="" />
+          </div>
+          <div className="">
+            <img className="img-fluid" src={img19} alt="" />
+          </div>
+          <div className="">
+            <img className="img-fluid" src={img20} alt="" />
           </div>
         </Slider>
       </div>

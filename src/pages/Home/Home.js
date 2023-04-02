@@ -34,22 +34,34 @@ function Home() {
                   <Row className="">
                     <Col>
                       <div className="text-center">
-                        <div className="text-uppercase font-weight-bold showcase-title">
+                        <img
+                          style={{ height: "150px" }}
+                          className="img-fluid"
+                          src={require("../../assets/img/txt-solo.png").default}
+                          alt=""
+                        />
+                        {/* <div className="text-uppercase font-weight-bold showcase-title">
                           Monetize the galaxy with
                         </div>
                         <div className="text-uppercase font-weight-bold showcase-logo logo-text">
                           Metamonopoly
-                        </div>
-                        <div className="text-center hideinmob">
+                        </div> */}
+                        <div className="py-3 text-center hideinmob">
                           <img
                             className="img-fluid"
-                            style={{ height: "40px" }}
+                            style={{ height: "60px" }}
                             src={
                               require("../../assets/img/Down-Arrow.png").default
                             }
                             alt=""
                           />
-                          <div className="py-1 text-uppercase font-weight-bold">
+                          <div
+                            style={{
+                              fontSize: "1.3rem",
+                              letterSpacing: "9px",
+                            }}
+                            className="py-1 text-uppercase font-weight-bold"
+                          >
                             Get started
                           </div>
                         </div>
@@ -122,15 +134,7 @@ function Home() {
                         }
                         alt=""
                       />
-                      {/* <div className="text-uppercase font-weight-bold  p2esec-title title">
-                        Play-to-earn
-                      </div>
-                      <div
-                        style={{ color: "#000" }}
-                        className="bg-white text-uppercase font-weight-bold p2esec-subtitle subtitle"
-                      >
-                        On ethereum
-                      </div> */}
+
                       <div className="text-center py-5">
                         <img
                           className="img-fluid"
@@ -404,6 +408,7 @@ function Home() {
             <span className="user-subtile">User Online</span>
           </div>
         </div>
+
         <div className=" d-flex justify-content-center text-center">
           <div className="formobile text-uppercase d-flex align-items-center py-1">
             <div className="d-flex align-items-center">
@@ -416,7 +421,7 @@ function Home() {
                 />
               </div>
               <div className="mx-1">
-                <span className="user-subtile">Users Online</span>
+                <span className="muser-subtile">Users Online</span>
               </div>
             </div>
           </div>
@@ -462,11 +467,20 @@ function Home() {
       </div> */}
 
       <div className="secsection formobile">
-        <div className="d-flex justify-content-center sec">
+        {/* <div className="d-flex justify-content-center sec">
           <img
             className="img-fluid rimg"
             style={{ height: "700px" }}
             src={require("../../assets/img/image-notxt.png").default}
+            alt=""
+          />
+        </div> */}
+
+        <div className="d-flex justify-content-center mt-5">
+          <img
+            className="img-fluid rimg"
+            style={{ height: "700px" }}
+            src={require("../../assets/img/Graphic.png").default}
             alt=""
           />
         </div>
@@ -517,16 +531,11 @@ function Home() {
         <div className="text-center">&nbsp;</div>
         <div className="text-center">&nbsp;</div>
         <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
+        <div className="text-center">&nbsp;</div>
 
-        {/* <div className="text-center">
-          <a href="https://galaxy.metamonopoly.org/" target="_blank">
-            <img
-              className="img-fluid playnowimg"
-              src={require("../../assets/img/PLAYNOW-Normal.png").default}
-              alt=""
-            />
-          </a>
-        </div> */}
         <div className="gimg fordesk">
           <img
             className="img-fluid rimg w-100"
@@ -539,7 +548,7 @@ function Home() {
         <div className="d-flex justify-content-center sec ">
           <img
             className="img-fluid rimg topsec"
-            style={{ height: "700px" }}
+            style={{ height: "800px" }}
             src={require("../../assets/img/Start-Earning.png").default}
             alt=""
           />
@@ -740,7 +749,9 @@ function Home() {
               alt=""
             />
             <div className="">
-              <div className=" font-weight-bold logo-text">#mmnft172</div>
+              <div className=" font-weight-bold logo-text">
+                #mmnft<span className="text-muted">172</span>
+              </div>
               <div className=" font-weight-bold logo-text text-muted">
                 3.7m views
               </div>
