@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   getAllUsers,
   getTransactionValues,
@@ -13,56 +13,6 @@ import "./stats.scss";
 import { ResponsiveBar } from "@nivo/bar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Footer from "../../components/Footer/Footer";
-
-export const options = {
-  maintainAspectRatio: false,
-
-  plugins: {
-    legend: {
-      display: false,
-    },
-    tooltip: {
-      displayColors: false,
-      backgroundColor: "#fff",
-      titleColor: "blue",
-      bodyColor: "#5f6678",
-      borderColor: "#5f6678",
-      borderWidth: 1,
-      yAlign: "bottom",
-      titleFont: {
-        size: 12,
-        weight: "bold",
-      },
-      callbacks: {
-        title: function () {
-          return "";
-        },
-      },
-    },
-  },
-  scales: {
-    x: {
-      ticks: {
-        color: "#fff",
-      },
-      //   // to remove the x-axis grid
-      grid: {
-        drawBorder: false,
-        display: false,
-      },
-    },
-    // to remove the y-axis labels
-    y: {
-      ticks: {
-        display: false,
-        beginAtZero: true,
-      },
-      grid: {
-        color: "#5f6678",
-      },
-    },
-  },
-};
 
 const chartDuration = {
   1: "1d",
@@ -118,9 +68,13 @@ const formatTimeForUsersSection = (inputSeconds) => {
 };
 
 function Stats() {
+  const [isHovered, setIsHovered] = useState({});
+  const [highlightedId, setHighlightedId] = useState({});
   const [walletsChartDuration, setWalletsChartDuration] = useState(
     chartDuration[30]
   );
+
+  const [thirtyDaysMonths, setThirtyDaysMonths] = useState([]);
 
   const [usersChartDuration, setUsersChartDuration] = useState(
     chartDuration[30]
@@ -227,6 +181,12 @@ function Stats() {
           data: walletsChartData.oneYearData.data,
         },
       });
+
+      const uniqueMonths = walletsChartData.thirtyDaysData.labels
+        .map((label) => label.split(" ")[1])
+        .filter((value, index, self) => self.indexOf(value) === index);
+
+      setThirtyDaysMonths(uniqueMonths);
     } catch (error) {
       console.error(error);
     }
@@ -270,6 +230,8 @@ function Stats() {
       console.error(error);
     }
   };
+
+  console.log({ thirtyDaysMonths });
 
   const fetchTotalUsers = async () => {
     try {
@@ -323,6 +285,13 @@ function Stats() {
     }
 
     const chartData = walletsChartData[key].labels.map((label, index) => {
+      if (walletsChartDuration === "30d") {
+        return {
+          time: label.split(" ")[0],
+          value: walletsChartData[key].data[index],
+        };
+      }
+
       return {
         time: label,
         value: walletsChartData[key].data[index],
@@ -347,6 +316,13 @@ function Stats() {
     }
 
     const chartData = activeUsersChartData[key].labels.map((label, index) => {
+      if (usersChartDuration === "30d") {
+        return {
+          time: label.split(" ")[0],
+          value: walletsChartData[key].data[index],
+        };
+      }
+
       return {
         time: label,
         value: activeUsersChartData[key].data[index],
@@ -354,6 +330,50 @@ function Stats() {
     });
 
     return chartData;
+  };
+
+  const calculateMaxValueForActiveUsersChart = () => {
+    let max = 0;
+
+    activeUsersChartData[
+      usersChartDuration === "1d"
+        ? "today"
+        : usersChartDuration === "7d"
+        ? "sevenDays"
+        : usersChartDuration === "30d"
+        ? "thirtyDays"
+        : usersChartDuration === "90d"
+        ? "ninetyDays"
+        : "oneYear"
+    ].data.forEach((value) => {
+      if (value > max) {
+        max = value;
+      }
+    });
+
+    return max * 1.1;
+  };
+
+  const calculateMaxValueForWalletsChart = () => {
+    let max = 0;
+
+    walletsChartData[
+      walletsChartDuration === "1d"
+        ? "today"
+        : walletsChartDuration === "7d"
+        ? "sevenDays"
+        : walletsChartDuration === "30d"
+        ? "thirtyDays"
+        : walletsChartDuration === "90d"
+        ? "ninetyDays"
+        : "oneYear"
+    ].data.forEach((value) => {
+      if (value > max) {
+        max = value;
+      }
+    });
+
+    return max * 1.1;
   };
 
   const theme = {
@@ -376,6 +396,103 @@ function Stats() {
       },
     },
   };
+
+  const highlightBar = (id, chartType) => {
+    setHighlightedId({
+      ...highlightedId,
+      [chartType]: id,
+    });
+  };
+
+  const CustomBar = React.memo(({ bar, highlightBar, chartType }) => {
+    const barIsHovered = bar.data.index === highlightedId[chartType];
+    const BAR_MAX_WIDTH = 30;
+
+    const width = bar.width > BAR_MAX_WIDTH ? BAR_MAX_WIDTH : bar.width;
+
+    const handleMouseEnter = () => {
+      setIsHovered({
+        ...isHovered,
+        [chartType]: true,
+      });
+      highlightBar(
+        bar.data.index,
+
+        chartType
+      );
+    };
+
+    const handleMouseLeave = () => {
+      setIsHovered({
+        ...isHovered,
+        [chartType]: false,
+      });
+      highlightBar(null, chartType);
+    };
+
+    return (
+      <g
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          transform: `translate(${bar.width / 2 - 15}px, 1px)`,
+          textAnchor: "middle",
+        }}
+      >
+        <rect
+          x={bar.x}
+          y={isHovered[chartType] && barIsHovered ? bar.y + 60 : bar.y}
+          width={width}
+          height={
+            isHovered[chartType] && barIsHovered ? bar.height - 60 : bar.height
+          }
+          fill={barIsHovered ? "#fff" : "#777"}
+          className="nivo-bar"
+          rx={5}
+          ry={5}
+          style={{
+            textAnchor: "middle",
+
+            alignmentBaseline: "middle",
+          }}
+        />
+
+        {isHovered[chartType] && barIsHovered && (
+          <>
+            <circle
+              cx={bar.x + width / 2}
+              cy={bar.y + 50}
+              r={width / 1.8}
+              stroke="#1A1B1D"
+              stroke-width={width > 30 ? 10 : 5}
+              fill="white"
+            />
+
+            <rect
+              x={bar.x + width / 2 - (width * 1.5) / 2}
+              y={bar.y - width / 2 - width / 2 - 5 + 35}
+              width={width * 1.5}
+              height={30}
+              fill={"#fff"}
+              rx={5}
+              ry={5}
+            />
+            <text
+              x={bar.x + width / 2}
+              y={bar.y - width / 2 - width / 2 - 5 + width / 4 + 45}
+              fill="black"
+              text-anchor="middle"
+              dominantBaseline={"middle"}
+              font-size="16px"
+              font-weight="bold"
+            >
+              + {bar.data.value}
+            </text>
+          </>
+        )}
+      </g>
+    );
+  });
 
   return (
     <section className="admin-dashboard">
@@ -406,21 +523,53 @@ function Stats() {
                   {totalUsers}
                 </span>
               </div>
-              <div className="wallets-chart-duration-selectors">
-                {Object.keys(chartDuration).map((key) => (
-                  <button
-                    key={key}
-                    className={`
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "baseline",
+                }}
+              >
+                <div className="wallets-chart-duration-selectors">
+                  {Object.keys(chartDuration).map((key) => (
+                    <button
+                      key={key}
+                      className={`
                     wallets-chart-duration-selectors__button
                     ${
                       walletsChartDuration === chartDuration[key] &&
                       "wallets-chart-duration-selectors__button--active"
                     }`}
-                    onClick={() => setWalletsChartDuration(chartDuration[key])}
-                  >
-                    {chartDuration[key]}
-                  </button>
-                ))}
+                      onClick={() => {
+                        setWalletsChartData({
+                          ...walletsChartData,
+                          loading: true,
+                        });
+                        setWalletsChartDuration(chartDuration[key]);
+                        setTimeout(() => {
+                          setWalletsChartData({
+                            ...walletsChartData,
+                            loading: false,
+                          });
+                        }, 500);
+                        setIsHovered({
+                          ...isHovered,
+                          wallets: false,
+                        });
+                        highlightBar(null, "wallets");
+                      }}
+                    >
+                      {chartDuration[key]}
+                    </button>
+                  ))}
+                </div>
+                {walletsChartDuration === "30d" && (
+                  <h3 className="wallets-chart-duration-selectors__month">
+                    {thirtyDaysMonths[0]}
+                    {thirtyDaysMonths[1] !== thirtyDaysMonths[0] &&
+                      ` - ${thirtyDaysMonths[1]}`}
+                  </h3>
+                )}
               </div>
             </div>
             <div className="wallets-connected-chart">
@@ -439,30 +588,14 @@ function Stats() {
                   enableLabel={false}
                   borderRadius={5}
                   theme={theme}
-                  onMouseEnter={(_data, event) => {
-                    event.target.style.fill = "#fff";
-                  }}
-                  onMouseLeave={(_data, event) => {
-                    event.target.style.fill = "#777777";
-                  }}
-                  colors={(bar) => "#777777"}
-                  tooltip={({ id, value, color }) => (
-                    <div
-                      style={{
-                        padding: 2,
-                        color: "#000",
-                        background: "#fff",
-                        border: "2px solid #ccc",
-                        borderRadius: "50%",
-                        width: 50,
-                        height: 50,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <strong>{value}</strong>
-                    </div>
+                  // maxValue={calculateMaxValueForWalletsChart()}
+                  barComponent={(props) => (
+                    <CustomBar
+                      {...props}
+                      data
+                      highlightBar={highlightBar}
+                      chartType={"wallets"}
+                    />
                   )}
                 />
               )}
@@ -487,23 +620,56 @@ function Stats() {
                 <div className="active-users">
                   <h3>Active Users</h3>
 
-                  <div className="wallets-chart-duration-selectors">
-                    {Object.keys(chartDuration).map((key) => (
-                      <button
-                        key={key}
-                        className={`
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "baseline",
+                    }}
+                  >
+                    <div className="wallets-chart-duration-selectors">
+                      {Object.keys(chartDuration).map((key) => (
+                        <button
+                          key={key}
+                          className={`
                     wallets-chart-duration-selectors__button
                     ${
                       usersChartDuration === chartDuration[key] &&
                       "wallets-chart-duration-selectors__button--active"
                     }`}
-                        onClick={() =>
-                          setUsersChartDuration(chartDuration[key])
-                        }
-                      >
-                        {chartDuration[key]}
-                      </button>
-                    ))}
+                          onClick={() => {
+                            setActiveUsersChartData({
+                              ...activeUsersChartData,
+                              loading: true,
+                            });
+
+                            setTimeout(() => {
+                              setActiveUsersChartData({
+                                ...activeUsersChartData,
+                                loading: false,
+                              });
+                            }, 500);
+
+                            setUsersChartDuration(chartDuration[key]);
+
+                            setIsHovered({
+                              ...isHovered,
+                              users: false,
+                            });
+                            highlightBar(null, "users");
+                          }}
+                        >
+                          {chartDuration[key]}
+                        </button>
+                      ))}
+                    </div>
+                    {usersChartDuration === "30d" && (
+                      <h3 className="wallets-chart-duration-selectors__month">
+                        {thirtyDaysMonths[0]}
+                        {thirtyDaysMonths[1] !== thirtyDaysMonths[0] &&
+                          ` - ${thirtyDaysMonths[1]}`}
+                      </h3>
+                    )}
                   </div>
                 </div>
                 <div className="active-users-chart">
@@ -522,30 +688,14 @@ function Stats() {
                       enableLabel={false}
                       borderRadius={5}
                       theme={theme}
-                      onMouseEnter={(_data, event) => {
-                        event.target.style.fill = "#fff";
-                      }}
-                      onMouseLeave={(_data, event) => {
-                        event.target.style.fill = "#777777";
-                      }}
-                      colors={(bar) => "#777777"}
-                      tooltip={({ id, value, color }) => (
-                        <div
-                          style={{
-                            padding: 2,
-                            color: "#000",
-                            background: "#fff",
-                            border: "2px solid #ccc",
-                            borderRadius: "50%",
-                            width: 50,
-                            height: 50,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                          }}
-                        >
-                          <strong>{value}</strong>
-                        </div>
+                      maxValue={calculateMaxValueForActiveUsersChart()}
+                      barComponent={(props) => (
+                        <CustomBar
+                          {...props}
+                          data
+                          highlightBar={highlightBar}
+                          chartType={"activeUsers"}
+                        />
                       )}
                     />
                   )}
