@@ -53,6 +53,11 @@ a {
   border: none !important;
 }
 
+ol,
+ul {
+  padding-left: 0 !important;
+}
+
 @media only screen and (max-width: 600px) {
   .rmt-1 {
     margin-top: 1rem;

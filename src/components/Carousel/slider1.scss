@@ -6,7 +6,7 @@
   --marquee-element-width1: calc(
     var(--marquee-width1) / var(--marquee-elements-displayed1)
   );
-  --marquee-animation-duration1: calc(var(--marquee-elements1) * 3s);
+  --marquee-animation-duration1: 20s;
 }
 
 .marquee1 {
@@ -22,7 +22,7 @@
   list-style: none;
   height: 100%;
   display: flex;
-  animation: scrolling 20s linear infinite;
+  animation: scrolling var(--marquee-animation-duration1) linear infinite;
 }
 
 @keyframes scrolling {
@@ -55,7 +55,7 @@
 @media (max-width: 600px) {
   :root {
     --marquee-width1: 100vw;
-    --marquee-height1: 23vh;
+    --marquee-height1: 24vh;
     --marquee-elements-displayed1: 3;
   }
   .marquee1:before,
