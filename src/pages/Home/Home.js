@@ -4,8 +4,9 @@ import Web3 from "web3";
 import { Container, Row, Col } from "react-bootstrap";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Footer from "../../components/Footer/Footer";
-import Carousel1 from "../../components/Carousel/Carousel1";
-import Carousel2 from "../../components/Carousel/Carousel2";
+import Slider1 from "../../components/Carousel/Slider1";
+import Slider2 from "../../components/Carousel/Slider2";
+import Slider3 from "../../components/Carousel/Slider3";
 
 function Home() {
   const [web3, setWeb3] = useState("");
@@ -612,8 +613,14 @@ function Home() {
         />
       </div> */}
       <div className="text-center mt-5">
-        <Carousel2 />
+        <Slider1 />
       </div>
+      <div className="text-center">
+        <Slider2 />
+      </div>
+      {/* <div className="text-center mt-5">
+        <Carousel2 />
+      </div> */}
 
       <Container>
         <div className="text-center my-4">
@@ -627,8 +634,13 @@ function Home() {
       </Container>
 
       <div className="text-center">
-        <Carousel1 />
+        <Slider3 />
       </div>
+
+      {/* <div className="text-center">
+        <Carousel1 />
+      </div> */}
+
       {/* <div className="text-center">
         <img
           className="img-fluid"

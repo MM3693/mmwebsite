@@ -1,0 +1,71 @@
+:root {
+  --marquee-width1: 100vw;
+  --marquee-height1: 45vh;
+  --marquee-elements1: 9;
+  --marquee-elements-displayed1: 5;
+  --marquee-element-width1: calc(
+    var(--marquee-width1) / var(--marquee-elements-displayed1)
+  );
+  --marquee-animation-duration1: calc(var(--marquee-elements1) * 3s);
+}
+
+.marquee1 {
+  width: var(--marquee-width1);
+  height: var(--marquee-height1);
+  color: #eee;
+  overflow: hidden;
+  position: relative;
+  /* border: 1px solid red; */
+}
+
+.marquee-content1 {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  animation: scrolling 20s linear infinite;
+}
+
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(
+      calc(-1 * var(--marquee-element-width1) * var(--marquee-elements1))
+    );
+  }
+}
+
+.marquee-content1 li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: var(--marquee-element-width1);
+  max-height: 100%;
+  font-size: 5rem; /* 5rem; */
+  white-space: nowrap;
+}
+
+.imgtag1 {
+  width: 20vw;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+  :root {
+    --marquee-width1: 100vw;
+    --marquee-height1: 23vh;
+    --marquee-elements-displayed1: 3;
+  }
+  .marquee1:before,
+  .marquee1:after {
+    width: 5rem;
+  }
+  .imgtag1 {
+    width: 100%;
+  }
+}
