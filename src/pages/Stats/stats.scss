@@ -701,7 +701,6 @@ $maxWidthContainer: 1180;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 10px;
         padding: 1rem 0.5rem;
         border: 3px solid #3f72f5;
         border-radius: 10px;
@@ -711,6 +710,7 @@ $maxWidthContainer: 1180;
           font-weight: 700;
           font-family: "Montserrat", sans-serif;
           text-align: center;
+          margin-bottom: 0px;
         }
 
         &--value {
@@ -741,6 +741,7 @@ $maxWidthContainer: 1180;
             font-weight: 700;
             font-family: "Montserrat", sans-serif;
             text-align: center;
+            margin-bottom: 0px;
           }
 
           &--value {
@@ -911,6 +912,7 @@ $maxWidthContainer: 1180;
               font-size: 1rem;
               font-weight: 700;
               font-family: "Montserrat", sans-serif;
+              margin-bottom: 0px;
             }
 
             &--value {
