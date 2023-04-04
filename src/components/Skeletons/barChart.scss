@@ -21,6 +21,10 @@
   @include breakpoint(768px) {
     height: 300px;
   }
+
+  @include breakpoint(480px) {
+    height: 250px;
+  }
 }
 
 .bar-chart-loader-bar {

@@ -13,6 +13,7 @@ import "./stats.scss";
 import { ResponsiveBar } from "@nivo/bar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Footer from "../../components/Footer/Footer";
+import { useMediaQuery } from "react-responsive";
 
 const chartDuration = {
   1: "1d",
@@ -68,6 +69,8 @@ const formatTimeForUsersSection = (inputSeconds) => {
 };
 
 function Stats() {
+  const isMobile = useMediaQuery({ query: "(max-width: 425px)" });
+
   const [isHovered, setIsHovered] = useState({});
   const [highlightedId, setHighlightedId] = useState({});
   const [walletsChartDuration, setWalletsChartDuration] = useState(
@@ -494,6 +497,287 @@ function Stats() {
     );
   });
 
+  if (isMobile) {
+    return (
+      <section className="admin-dashboard-mobile">
+        <div className="">
+          <Sidebar />
+        </div>
+        <div className="admin-dashboard-mobile__container">
+          <div className="admin-dashboard-mobile__content">
+            <div className="admin-dashboard-mobile__content__header">
+              <h1 className="admin-dashboard-mobile__content__header--title">
+                Admin Dashboard{" "}
+                <sup className="admin-dashboard-mobile__content__header--title--sup">
+                  [BACKEND]
+                </sup>
+              </h1>
+
+              <div className="admin-dashboard-mobile__content__header--online">
+                <h3 className="online">
+                  Users Online: <b>X,XXX</b>
+                </h3>
+              </div>
+            </div>
+
+            <div className="admin-dashboard-mobile__content__stats">
+              <div className="admin-dashboard-mobile__content__stats__top-cards">
+                <div className="admin-dashboard-mobile__content__stats__top-cards__card">
+                  <h3>Total Users</h3>
+                  <span className="admin-dashboard-mobile__content__stats__top-cards__card--value">
+                    {totalUsers}
+                  </span>
+                </div>
+                <div className="admin-dashboard-mobile__content__stats__top-cards__card">
+                  <h3>Avg Play Time</h3>
+                  <span className="admin-dashboard-mobile__content__stats__top-cards__card--value">
+                    {formatTimeForUsersSection(gamePlay.averagePlayTime)}
+                  </span>
+                </div>
+              </div>
+              <div className="admin-dashboard-mobile__content__stats__vertical-cards">
+                <div className="admin-dashboard-mobile__content__stats__vertical-cards__card">
+                  <h3>Total Transactions</h3>
+                  <span className="admin-dashboard-mobile__content__stats__vertical-cards__card--value">
+                    {transactionValues.totalTransactions}
+                  </span>
+                </div>
+                <div className="admin-dashboard-mobile__content__stats__vertical-cards__card">
+                  <h3>Average Transactions Value</h3>
+                  <span className="admin-dashboard-mobile__content__stats__vertical-cards__card--value">
+                    {transactionValues.average} eth
+                  </span>
+                </div>
+                <div className="admin-dashboard-mobile__content__stats__vertical-cards__card">
+                  <h3>Total Transactions Value</h3>
+                  <span className="admin-dashboard-mobile__content__stats__vertical-cards__card--value">
+                    {transactionValues.total} eth
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="admin-dashboard-mobile__content__body">
+              <div className="admin-dashboard-mobile__content__body__charts-section">
+                <div className="admin-dashboard-mobile__content__body__charts-section__wallet">
+                  <div>
+                    <div className="mobile-total-wallets-connected ">
+                      <h3>Total Wallets Connected</h3>
+                      <span className="mobile-total-wallets-connected__value">
+                        {totalUsers}
+                      </span>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "baseline",
+                      }}
+                    >
+                      <div className="wallets-chart-duration-selectors">
+                        {Object.keys(chartDuration).map((key) => (
+                          <button
+                            key={key}
+                            className={`
+                    wallets-chart-duration-selectors__button
+                    ${
+                      walletsChartDuration === chartDuration[key] &&
+                      "wallets-chart-duration-selectors__button--active"
+                    }`}
+                            onClick={() => {
+                              setWalletsChartData({
+                                ...walletsChartData,
+                                loading: true,
+                              });
+                              setWalletsChartDuration(chartDuration[key]);
+                              setTimeout(() => {
+                                setWalletsChartData({
+                                  ...walletsChartData,
+                                  loading: false,
+                                });
+                              }, 500);
+                              setIsHovered({
+                                ...isHovered,
+                                wallets: false,
+                              });
+                              highlightBar(null, "wallets");
+                            }}
+                          >
+                            {chartDuration[key]}
+                          </button>
+                        ))}
+                      </div>
+                      {walletsChartDuration === "30d" && (
+                        <h3 className="wallets-chart-duration-selectors__month">
+                          {thirtyDaysMonths[0]}
+                          {thirtyDaysMonths[1] !== thirtyDaysMonths[0] &&
+                            ` - ${thirtyDaysMonths[1]}`}
+                        </h3>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="wallets-connected-chart_wrapper">
+                    {walletsChartData.loading ? (
+                      <BarChartLoader />
+                    ) : (
+                      <div
+                        className={
+                          walletsChartDuration === "7d"
+                            ? "wallets-connected-chart--7d"
+                            : walletsChartDuration === "90d"
+                            ? "wallets-connected-chart--90d"
+                            : "wallets-connected-chart"
+                        }
+                      >
+                        <ResponsiveBar
+                          data={renderWalletChartData()}
+                          keys={["value"]}
+                          indexBy="time"
+                          margin={{ top: 0, right: 0, bottom: 50, left: 0 }}
+                          padding={0.3}
+                          labelSkipWidth={12}
+                          labelSkipHeight={12}
+                          axisLeft={null}
+                          enableLabel={false}
+                          borderRadius={5}
+                          theme={theme}
+                          barComponent={(props) => (
+                            <CustomBar
+                              {...props}
+                              data
+                              highlightBar={highlightBar}
+                              chartType={"wallets"}
+                            />
+                          )}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div className="admin-dashboard-mobile__content__body__charts-section__users">
+                  <div className="active-users">
+                    <h3>Active Users</h3>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "baseline",
+                      }}
+                    >
+                      <div className="wallets-chart-duration-selectors">
+                        {Object.keys(chartDuration).map((key) => (
+                          <button
+                            key={key}
+                            className={`
+                    wallets-chart-duration-selectors__button
+                    ${
+                      usersChartDuration === chartDuration[key] &&
+                      "wallets-chart-duration-selectors__button--active"
+                    }`}
+                            onClick={() => {
+                              setActiveUsersChartData({
+                                ...activeUsersChartData,
+                                loading: true,
+                              });
+
+                              setTimeout(() => {
+                                setActiveUsersChartData({
+                                  ...activeUsersChartData,
+                                  loading: false,
+                                });
+                              }, 500);
+
+                              setUsersChartDuration(chartDuration[key]);
+
+                              setIsHovered({
+                                ...isHovered,
+                                users: false,
+                              });
+                              highlightBar(null, "users");
+                            }}
+                          >
+                            {chartDuration[key]}
+                          </button>
+                        ))}
+                      </div>
+                      {usersChartDuration === "30d" && (
+                        <h3 className="wallets-chart-duration-selectors__month">
+                          {thirtyDaysMonths[0]}
+                          {thirtyDaysMonths[1] !== thirtyDaysMonths[0] &&
+                            ` - ${thirtyDaysMonths[1]}`}
+                        </h3>
+                      )}
+                    </div>
+                  </div>
+                  <div className="active-users-chart_wrapper">
+                    {activeUsersChartData.loading ? (
+                      <BarChartLoader />
+                    ) : (
+                      <div
+                        className={`${
+                          usersChartDuration === "7d"
+                            ? "active-users-chart--7d"
+                            : usersChartDuration === "90d"
+                            ? "active-users-chart--90d"
+                            : "active-users-chart"
+                        } 
+                        
+                        }`}
+                      >
+                        <ResponsiveBar
+                          data={renderActiveUsersChartData()}
+                          keys={["value"]}
+                          indexBy="time"
+                          margin={{ top: 0, right: 0, bottom: 50, left: 0 }}
+                          padding={0.3}
+                          labelSkipWidth={12}
+                          labelSkipHeight={12}
+                          axisLeft={null}
+                          enableLabel={false}
+                          borderRadius={5}
+                          theme={theme}
+                          barComponent={(props) => (
+                            <CustomBar
+                              {...props}
+                              data
+                              highlightBar={highlightBar}
+                              chartType={"activeUsers"}
+                            />
+                          )}
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="transactions-section">
+                <div className="transactions-section__footer">
+                  <div className="transactions-section__footer__box">
+                    <h3>Total Play Time</h3>
+                    <span className="transactions-section__footer__box--value">
+                      {formatTime(gamePlay.totalPlayTime)}
+                    </span>
+                  </div>
+                  <div className="transactions-section__footer__box">
+                    <h3>Total Player Invites</h3>
+                    <span className="transactions-section__footer__box--value">
+                      100
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </section>
+    );
+  }
+
   return (
     <section className="admin-dashboard">
       <div className="">
@@ -511,7 +795,7 @@ function Stats() {
 
             <div className="admin-dashboard__content__header--online">
               <h3 className="online">
-                Users online: <b>X,XXX</b>
+                Users Online: <b>X,XXX</b>
               </h3>
             </div>
           </div>
