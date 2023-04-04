@@ -335,50 +335,6 @@ function Stats() {
     return chartData;
   };
 
-  const calculateMaxValueForActiveUsersChart = () => {
-    let max = 0;
-
-    activeUsersChartData[
-      usersChartDuration === "1d"
-        ? "today"
-        : usersChartDuration === "7d"
-        ? "sevenDays"
-        : usersChartDuration === "30d"
-        ? "thirtyDays"
-        : usersChartDuration === "90d"
-        ? "ninetyDays"
-        : "oneYear"
-    ].data.forEach((value) => {
-      if (value > max) {
-        max = value;
-      }
-    });
-
-    return max * 1.1;
-  };
-
-  const calculateMaxValueForWalletsChart = () => {
-    let max = 0;
-
-    walletsChartData[
-      walletsChartDuration === "1d"
-        ? "today"
-        : walletsChartDuration === "7d"
-        ? "sevenDays"
-        : walletsChartDuration === "30d"
-        ? "thirtyDays"
-        : walletsChartDuration === "90d"
-        ? "ninetyDays"
-        : "oneYear"
-    ].data.forEach((value) => {
-      if (value > max) {
-        max = value;
-      }
-    });
-
-    return max * 1.1;
-  };
-
   const theme = {
     background: "transparent",
     axis: {
@@ -972,7 +928,6 @@ function Stats() {
                       enableLabel={false}
                       borderRadius={5}
                       theme={theme}
-                      maxValue={calculateMaxValueForActiveUsersChart()}
                       barComponent={(props) => (
                         <CustomBar
                           {...props}
