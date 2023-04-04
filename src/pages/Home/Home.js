@@ -354,7 +354,7 @@ function Home() {
                     <div className="text-center mt-4">
                       <div className="formobile text-center">
                         <img
-                          className="img-fluid"
+                          className="img-fluid px-3"
                           src={
                             require("../../assets/img/PLAY-TO-EARN--white.png")
                               .default
