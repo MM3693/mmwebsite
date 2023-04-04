@@ -685,7 +685,7 @@ $maxWidthContainer: 1180;
       @include adaptiv-value("padding-right", 400, 20, 0);
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: 20px;
       justify-content: space-between;
 
       &__top-cards {
