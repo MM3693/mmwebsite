@@ -6,14 +6,29 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import Footer from "../../components/Footer/Footer";
 import Carousel1 from "../../components/Carousel/Carousel1";
 import Carousel2 from "../../components/Carousel/Carousel2";
+import io from "socket.io-client";
+
+const socket = io(process.env.REACT_APP_BACKEND_SOCKET_URL, {
+  secure: true,
+});
 
 function Home() {
   const [web3, setWeb3] = useState("");
   const [add, setAdd] = useState("");
+  const [usersOnline, setUsersOnline] = useState(0);
 
   useEffect(() => {
     let web3 = new Web3(Web3.givenProvider);
     setWeb3(web3);
+  }, []);
+
+  useEffect(() => {
+    socket.emit("getUsers", "getUsers");
+
+    socket.on("users", (message) => {
+      const { count: onlineUsers } = message;
+      setUsersOnline(onlineUsers);
+    });
   }, []);
 
   return (
@@ -392,7 +407,7 @@ function Home() {
         <div className="useronlineimg w-100">
           <div className="mt-5 d-flex justify-content-center">
             <div className="userborder">
-              <div className="usernumber">12,345</div>
+              <div className="usernumber">{usersOnline}</div>
             </div>
           </div>
         </div>

@@ -1,6 +1,5 @@
 import axios from "axios";
-export const BASE_URL =
-  process.env.REACT_APP_BACKEND_URL || "https://api.mmstudios.io";
+export const BASE_URL = process.env.REACT_APP_BACKEND_URL;
 
 export async function getAllUsers() {
   return await axios.get(`${BASE_URL}/users/all`);
