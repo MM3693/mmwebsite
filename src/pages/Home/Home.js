@@ -420,7 +420,7 @@ function Home() {
               src={require("../../assets/img/Green-Light.png").default}
               alt=""
             />
-            <span className="user-subtile">User Online</span>
+            <span className="user-subtile">Users Online</span>
           </div>
         </div>
 
