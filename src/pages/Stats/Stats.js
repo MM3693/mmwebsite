@@ -14,7 +14,12 @@ import { ResponsiveBar } from "@nivo/bar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Footer from "../../components/Footer/Footer";
 import { useMediaQuery } from "react-responsive";
+import io from "socket.io-client";
+import useAppStore from "../../store";
 
+const socket = io(process.env.REACT_APP_BACKEND_SOCKET_URL, {
+  secure: true,
+});
 const chartDuration = {
   1: "1d",
   7: "7d",
@@ -69,6 +74,8 @@ const formatTimeForUsersSection = (inputSeconds) => {
 };
 
 function Stats() {
+  const state = useAppStore();
+  console.log({ state });
   const isMobile = useMediaQuery({ query: "(max-width: 425px)" });
 
   const [isHovered, setIsHovered] = useState({});
@@ -148,6 +155,15 @@ function Stats() {
     fetchGamePlay();
     fetchWalletsChartData();
     fetchActiveUsersChartData();
+  }, []);
+
+  useEffect(() => {
+    socket.emit("getUsers", "getUsers");
+
+    socket.on("users", (message) => {
+      const { count: onlineUsers } = message;
+      state.setUsersOnline(onlineUsers);
+    });
   }, []);
 
   const fetchWalletsChartData = async () => {
@@ -471,7 +487,7 @@ function Stats() {
 
               <div className="admin-dashboard-mobile__content__header--online">
                 <h3 className="online">
-                  Users Online: <b>X,XXX</b>
+                  Users Online: <b>{state.usersOnline}</b>
                 </h3>
               </div>
             </div>
@@ -751,7 +767,7 @@ function Stats() {
 
             <div className="admin-dashboard__content__header--online">
               <h3 className="online">
-                Users Online: <b>X,XXX</b>
+                Users Online: <b>{state.usersOnline}</b>
               </h3>
             </div>
           </div>
@@ -952,13 +968,13 @@ function Stats() {
                 <div className="transactions-section__header-boxes__box">
                   <h3>Average Transaction Value</h3>
                   <span className="transactions-section__header-boxes__box--value">
-                    {transactionValues.average} eth
+                    {Number(transactionValues.average).toFixed(2)} eth
                   </span>
                 </div>
                 <div className="transactions-section__header-boxes__box">
                   <h3>Total Transaction Value</h3>
                   <span className="transactions-section__header-boxes__box--value">
-                    {transactionValues.total} eth
+                    {transactionValues.total.toFixed(2)} eth
                   </span>
                 </div>
               </div>

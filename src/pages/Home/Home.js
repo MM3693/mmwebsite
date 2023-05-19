@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import Carousel1 from "../../components/Carousel/Carousel1";
 import Carousel2 from "../../components/Carousel/Carousel2";
 import io from "socket.io-client";
+import useAppStore from "../../store";
 
 const socket = io(process.env.REACT_APP_BACKEND_SOCKET_URL, {
   secure: true,
@@ -15,7 +16,8 @@ const socket = io(process.env.REACT_APP_BACKEND_SOCKET_URL, {
 function Home() {
   const [web3, setWeb3] = useState("");
   const [add, setAdd] = useState("");
-  const [usersOnline, setUsersOnline] = useState(0);
+
+  const state = useAppStore();
 
   useEffect(() => {
     let web3 = new Web3(Web3.givenProvider);
@@ -27,7 +29,7 @@ function Home() {
 
     socket.on("users", (message) => {
       const { count: onlineUsers } = message;
-      setUsersOnline(onlineUsers);
+      state.setUsersOnline(onlineUsers);
     });
   }, []);
 
@@ -407,7 +409,7 @@ function Home() {
         <div className="useronlineimg w-100">
           <div className="mt-5 d-flex justify-content-center">
             <div className="userborder">
-              <div className="usernumber">{usersOnline}</div>
+              <div className="usernumber">{state.usersOnline}</div>
             </div>
           </div>
         </div>
