@@ -28,49 +28,29 @@ const chartDuration = {
   360: "1y",
 };
 
-const formatTime = (inputSeconds) => {
-  const hours = Math.floor(inputSeconds / 3600);
-  const remainingSecondsAfterHours = inputSeconds % 3600;
-  const minutes = Math.floor(remainingSecondsAfterHours / 60);
-  const seconds = remainingSecondsAfterHours % 60;
+const formatTimeForUsersSection = (timeString) => {
+  if (timeString === "") return "0 seconds";
+  let displayString = "";
 
-  let timeString = "";
-  if (hours > 0) {
-    timeString += hours + " Hrs ";
-  }
-  if (minutes > 0) {
-    timeString += minutes + " Mins ";
-  }
-  if (seconds > 0 || (hours === 0 && minutes === 0)) {
-    timeString += seconds + " Secs";
-  }
+  const timeComponents = timeString.split(", "); // Split the time string into individual components
 
-  return timeString;
-};
+  if (timeComponents.length > 0) {
+    const hours = parseInt(timeComponents[0].split(" ")[0]);
+    const minutes = parseInt(timeComponents[1].split(" ")[0]);
+    const seconds = parseInt(timeComponents[2].split(" ")[0]);
 
-const formatTimeForUsersSection = (inputSeconds) => {
-  const hours = Math.floor(inputSeconds / 3600);
-  const remainingSecondsAfterHours = inputSeconds % 3600;
-  const minutes = Math.floor(remainingSecondsAfterHours / 60);
-  const seconds = remainingSecondsAfterHours % 60;
-
-  let timeString = "";
-
-  // if hours is greater than 0, then display hours
-  // if minutes is greater than 0, then display minutes
-  // if seconds is greater than 0, then display seconds
-  // if hours, minutes and seconds are all 0, then display 0 seconds
-  // if hours is 0, then display minutes
-  // if minutes is 0, then display seconds
-  if (hours > 0) {
-    timeString += hours + " Hrs ";
-  } else if (minutes > 0) {
-    timeString += minutes + " Mins ";
-  } else if (seconds > 0 || (hours === 0 && minutes === 0)) {
-    timeString += seconds + " Secs";
+    if (hours > 0) {
+      displayString += hours + " hours";
+    } else if (minutes > 0) {
+      displayString += minutes + " minutes";
+    } else if (seconds > 0) {
+      displayString += seconds + " seconds";
+    } else {
+      displayString += "0 seconds";
+    }
   }
 
-  return timeString;
+  return displayString;
 };
 
 function Stats() {
@@ -97,8 +77,8 @@ function Stats() {
     totalTransactions: 0,
   });
   const [gamePlay, setGamePlay] = useState({
-    totalPlayTime: 0,
-    averagePlayTime: 0,
+    totalPlayTime: "",
+    averagePlayTime: "",
   });
 
   const [walletsChartData, setWalletsChartData] = useState({
@@ -282,7 +262,7 @@ function Stats() {
       const gamePlayValues = await response.data;
       setGamePlay({
         totalPlayTime: gamePlayValues.totalTime,
-        averagePlayTime: gamePlayValues.averageTime.toFixed(0),
+        averagePlayTime: gamePlayValues.averageTime,
       });
     } catch (error) {
       console.error(error);
@@ -517,13 +497,13 @@ function Stats() {
                 <div className="admin-dashboard-mobile__content__stats__vertical-cards__card">
                   <h3>Average Transactions Value</h3>
                   <span className="admin-dashboard-mobile__content__stats__vertical-cards__card--value">
-                    {transactionValues.average} eth
+                    {Number(transactionValues.average).toFixed(2)} eth
                   </span>
                 </div>
                 <div className="admin-dashboard-mobile__content__stats__vertical-cards__card">
                   <h3>Total Transactions Value</h3>
                   <span className="admin-dashboard-mobile__content__stats__vertical-cards__card--value">
-                    {transactionValues.total} eth
+                    {transactionValues.total.toFixed(2)} eth
                   </span>
                 </div>
               </div>
@@ -731,7 +711,7 @@ function Stats() {
                   <div className="transactions-section__footer__box">
                     <h3>Total Play Time</h3>
                     <span className="transactions-section__footer__box--value">
-                      {formatTime(gamePlay.totalPlayTime)}
+                      {gamePlay.totalPlayTime}
                     </span>
                   </div>
                   <div className="transactions-section__footer__box">
@@ -866,7 +846,6 @@ function Stats() {
                 <div className="stats-container">
                   <h3>Avg Play Time</h3>
                   <span className="stats-container__value">
-                    {/* {formatTime(gamePlay.averagePlayTime)} */}
                     {formatTimeForUsersSection(gamePlay.averagePlayTime)}
                   </span>
                 </div>
@@ -982,7 +961,7 @@ function Stats() {
                 <div className="transactions-section__footer__box">
                   <h3>Total Play Time:</h3>
                   <span className="transactions-section__footer__box--value">
-                    {formatTime(gamePlay.totalPlayTime)}
+                    {gamePlay.totalPlayTime}
                   </span>
                 </div>
                 <div className="transactions-section__footer__box">
